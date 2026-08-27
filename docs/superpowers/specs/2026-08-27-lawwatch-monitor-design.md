@@ -137,7 +137,13 @@ class Fetcher:
       "fingerprint": "..."
     }
   },
-  "list_urls": {}
+  "list_urls": {},
+  "errors": {
+    "<site-url>": {
+      "error": "request timeout",
+      "at": "2026-08-27T00:30:00Z"
+    }
+  }
 }
 ```
 
@@ -147,6 +153,7 @@ class Fetcher:
 - 后续运行：新 URL 加入 `documents` 并作为新增内容发送通知。
 - 状态保存前删除 `last_seen` 超过 30 天的记录。
 - URL 做规范化（去掉 fragment，保留查询参数）。
+- 第一版以规范化 URL 作为公文身份；`fingerprint` 仅记录在状态中，用于诊断，不触发“同一 URL 内容变化”的通知。
 
 ### 5.7 `monitor/notify.py`
 
@@ -223,3 +230,4 @@ python -m monitor.run --send
 - PDF/附件内容摘要和 OCR。
 - 失败通知、每日汇总、关键词过滤。
 - 把历史记录迁移到 SQLite 或 GitHub Issues。
+
