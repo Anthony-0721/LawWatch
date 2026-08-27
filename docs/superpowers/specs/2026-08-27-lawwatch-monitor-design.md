@@ -47,6 +47,7 @@ GitHub Actions cron (every 30 min)
           v
 monitor/run.py
   |-- sites.csv
+  |-- __init__.py
   |-- fetcher.py          HTTP / Playwright 抓取
   |-- discovery.py       发现栏目和公文链接
   |-- extractor.py       清洗与抽取候选公文
@@ -230,4 +231,5 @@ python -m monitor.run --send
 - PDF/附件内容摘要和 OCR。
 - 失败通知、每日汇总、关键词过滤。
 - 把历史记录迁移到 SQLite 或 GitHub Issues。
+
 
