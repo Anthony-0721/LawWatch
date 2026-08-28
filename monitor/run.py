@@ -32,9 +32,9 @@ def _crawl_site(site, known_list_urls, max_pages):
         documents, discovered, errors = discover_for_site(
             site, fetcher, known_list_urls=known_list_urls, max_pages=max_pages
         )
-        return site.url, documents, discovered, errors
+        return documents, discovered, errors
     except Exception as exc:
-        return site.url, [], [], {site.url: str(exc)}
+        return [], None, {site.url: str(exc)}
     finally:
         close = getattr(fetcher, "close", None)
         if close is not None:
@@ -54,28 +54,29 @@ def run(
     list_urls = store.data.get("list_urls", {})
     any_site_ok = False
 
-    results: dict[str, tuple] = {}
+    results: list[tuple | None] = [None] * len(sites)
     if sites:
         worker_count = _resolve_workers(max_workers, len(sites))
-        future_to_site = {}
+        future_to_index = {}
         with ThreadPoolExecutor(max_workers=worker_count) as pool:
-            for site in sites:
+            for index, site in enumerate(sites):
                 known = tuple(
                     url for url in list_urls.get(site.url, []) if is_list_candidate(url, "")
                 )
-                future_to_site[pool.submit(_crawl_site, site, known, max_pages)] = site
-            for future in as_completed(future_to_site):
-                site = future_to_site[future]
+                future_to_index[pool.submit(_crawl_site, site, known, max_pages)] = index
+            for future in as_completed(future_to_index):
+                index = future_to_index[future]
                 try:
-                    results[site.url] = future.result()
+                    results[index] = future.result()
                 except Exception as exc:
-                    results[site.url] = (site.url, [], [], {site.url: str(exc)})
+                    results[index] = ([], None, {sites[index].url: str(exc)})
 
-    for site in sites:
-        _, documents, discovered, errors = results[site.url]
+    for index, site in enumerate(sites):
+        documents, discovered, errors = results[index]
         if not errors:
             any_site_ok = True
-        list_urls[site.url] = [url for url in discovered if is_list_candidate(url, "")]
+        if discovered is not None:
+            list_urls[site.url] = [url for url in discovered if is_list_candidate(url, "")]
         all_documents.extend(documents)
         all_errors.update(errors)
 

@@ -130,6 +130,82 @@ def test_sites_crawl_concurrently_and_failure_is_isolated(monkeypatch):
     }
 
 
+def test_failing_site_preserves_remembered_list_urls(monkeypatch):
+    bad = Site(province="浙江", url="https://example.com/bad")
+    good = Site(province="广东", url="https://example.com/good")
+    remembered = ["https://example.com/bad/xxgk/list.shtml"]
+    good_document = Document(
+        url="https://example.com/good/doc/1",
+        title="测试公文",
+        province="广东",
+        source_url=good.url,
+    )
+    known_for_bad = []
+
+    def fake_discover(site, fetcher, known_list_urls=(), max_pages=30):
+        if site.url == bad.url:
+            known_for_bad.append(known_list_urls)
+            raise RuntimeError("boom")
+        return [good_document], [site.url], {}
+
+    state = FakeState(None)
+    state.data["list_urls"] = {bad.url: list(remembered)}
+    monkeypatch.setattr("monitor.run.load_sites", lambda: [bad, good])
+    monkeypatch.setattr("monitor.run.StateStore", lambda path: state)
+    monkeypatch.setattr("monitor.run.discover_for_site", fake_discover)
+
+    result = run(send=False)
+    assert known_for_bad == [tuple(remembered)]
+    assert state.data["list_urls"][bad.url] == remembered
+    assert state.received_errors == {bad.url: "boom"}
+    assert result["documents"] == 1
+    assert result["new_count"] == 1
+    assert result["errors"] == 1
+
+
+def test_sites_with_same_url_both_contribute_results(monkeypatch):
+    first = Site(province="浙江", url="https://example.com/same")
+    second = Site(province="广东", url="https://example.com/same")
+    documents = {
+        "浙江": Document(
+            url="https://example.com/same/doc/1",
+            title="测试公文一",
+            province="浙江",
+            source_url="https://example.com/same",
+        ),
+        "广东": Document(
+            url="https://example.com/same/doc/2",
+            title="测试公文二",
+            province="广东",
+            source_url="https://example.com/same",
+        ),
+    }
+
+    def fake_discover(site, fetcher, known_list_urls=(), max_pages=30):
+        return [documents[site.province]], [site.url], {}
+
+    class CaptureState(FakeState):
+        def update(self, docs, errors, sites_ok=True):
+            self.received_documents = list(docs)
+            self.received_errors = errors
+            return list(docs), False
+
+    state = CaptureState(None)
+    monkeypatch.setattr("monitor.run.load_sites", lambda: [first, second])
+    monkeypatch.setattr("monitor.run.StateStore", lambda path: state)
+    monkeypatch.setattr("monitor.run.discover_for_site", fake_discover)
+
+    result = run(send=False)
+    assert [doc.url for doc in state.received_documents] == [
+        "https://example.com/same/doc/1",
+        "https://example.com/same/doc/2",
+    ]
+    assert result["sites"] == 2
+    assert result["documents"] == 2
+    assert result["new_count"] == 2
+    assert result["errors"] == 0
+
+
 def test_notify_before_save_and_skip_save_when_notifications_fail(monkeypatch):
     site = Site(province="海南", url="https://example.com/dynamic", dynamic=True)
     document = Document(
