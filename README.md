@@ -38,8 +38,13 @@ GitHub 托管的公共 Runner 出口 IP 可能被部分中国政府网站限流�
 
 在完成一次“多数站点成功”的基线运行并人工核对日志之前，不要仅凭定时工作流判断监测是否生效。
 
+## Windows 本机部署（无需安装 Python）
+
+如需在甲方 Windows 电脑上免安装运行，可按 [docs/windows-deployment.md](docs/windows-deployment.md) 打包便携版并注册计划任务：登录后每 30 分钟运行，配置保存在本地 `config.json`，首次运行只建立基线、不发通知。
 
 ## 国内自托管 Runner
 
 如果 GitHub Hosted Runner 无法访问 .gov.cn，请按 [docs/self-hosted-runner.md](docs/self-hosted-runner.md) 在国内服务器注册自托管 Runner。工作流已使用标签 self-hosted,linux,x64,lawwatch-domestic。
+
+注册完成后的逐项验证（Runner 在线、手动触发、核对状态与 Actions 日志）见 [docs/domestic-runner-checklist.md](docs/domestic-runner-checklist.md)。
 
