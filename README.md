@@ -37,3 +37,9 @@ GitHub 托管的公共 Runner 出口 IP 可能被部分中国政府网站限流�
 - 或为运行环境配置可用的网络代理。
 
 在完成一次“多数站点成功”的基线运行并人工核对日志之前，不要仅凭定时工作流判断监测是否生效。
+
+
+## 国内自托管 Runner
+
+如果 GitHub Hosted Runner 无法访问 .gov.cn，请按 [docs/self-hosted-runner.md](docs/self-hosted-runner.md) 在国内服务器注册自托管 Runner。工作流已使用标签 self-hosted,linux,x64,lawwatch-domestic。
+
