@@ -1,5 +1,5 @@
-import smtplib
 import os
+import smtplib
 import sys
 from email.mime.text import MIMEText
 
@@ -7,13 +7,26 @@ import requests
 
 from .models import Document
 
+WECOM_MAX_CONTENT_BYTES = 1800
+
 
 def build_wecom_payload(items: list[Document]) -> dict:
-    lines = [
-        f"LawWatch 发现 {len(items)} 条新公文",
-    ]
+    header = f"LawWatch 发现 {len(items)} 条新公文"
+    lines = [header]
+    shown = 0
     for item in items:
-        lines.append(f"- {item.province}：{item.title}\n  {item.url}")
+        candidate = f"- {item.province}：{item.title}\n  {item.url}"
+        remaining = len(items) - shown - 1
+        reserve = (
+            len(f"\n(仅显示前 {shown + 1} 条，详见邮件)".encode("utf-8")) if remaining else 0
+        )
+        trial = "\n".join([*lines, candidate]).encode("utf-8")
+        if len(trial) + reserve > WECOM_MAX_CONTENT_BYTES:
+            break
+        lines.append(candidate)
+        shown += 1
+    if shown < len(items):
+        lines.append(f"(仅显示前 {shown} 条，详见邮件)")
     return {
         "msgtype": "text",
         "text": {"content": "\n".join(lines)},
@@ -52,14 +65,16 @@ def send_email(settings: dict, items: list[Document]) -> None:
         smtp.sendmail(settings["user"], settings["to"], message.as_string())
 
 
-def notify_all(items: list[Document]) -> None:
+def notify_all(items: list[Document]) -> bool:
     wecom = os.getenv("WECOM_WEBHOOK", "").strip()
     user = os.getenv("SMTP_USER", "").strip()
     auth = os.getenv("SMTP_AUTH_CODE", "").strip()
     to = [x.strip() for x in os.getenv("EMAIL_TO", "").split(",") if x.strip()]
+    any_succeeded = False
     if wecom:
         try:
             send_wecom(wecom, items)
+            any_succeeded = True
         except Exception as exc:
             print(f"[notify] WeCom notification failed: {exc}", file=sys.stderr)
     if user and auth and to:
@@ -68,5 +83,7 @@ def notify_all(items: list[Document]) -> None:
                 {"host": "smtp.qq.com", "port": 465, "user": user, "password": auth, "to": to},
                 items,
             )
+            any_succeeded = True
         except Exception as exc:
             print(f"[notify] email notification failed: {exc}", file=sys.stderr)
+    return any_succeeded

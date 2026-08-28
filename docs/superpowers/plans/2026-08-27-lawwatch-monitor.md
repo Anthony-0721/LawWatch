@@ -16,7 +16,7 @@
 - 第一版以规范化 URL 作为公文身份；内容指纹只记录，不触发更新通知。
 - 状态保存最近 30 天记录，超过自动清理。
 - GitHub Actions 需要 `contents: write` 权限以提交 `monitor/state.json`。
-- 本地 `--dry-run` 不发送通知、不提交工作流状态文件。
+- 本地 `--dry-run` 不发送通知、不写 `monitor/state.json` 状态文件。
 
 ## Task 1: 项目骨架与配置
 
@@ -210,9 +210,15 @@ git commit -m "feat(monitor): add package skeleton and site config"
 from monitor.extractor import canonical_url, is_document_candidate, extract_documents
 
 
-def test_canonical_url_removes_fragment_but_keeps_query():
+def test_canonical_url_removes_inert_fragment_but_keeps_query():
     assert canonical_url("/article?id=1#top", "https://example.gov.cn/") == (
         "https://example.gov.cn/article?id=1"
+    )
+
+
+def test_canonical_url_preserves_spa_hash_routes():
+    assert canonical_url("/#/detail/1", "https://example.gov.cn/") == (
+        "https://example.gov.cn/#/detail/1"
     )
 
 
@@ -244,7 +250,6 @@ python -m pytest tests/test_extractor.py -v
 
 ```python
 import hashlib
-import re
 from urllib.parse import urljoin, urlparse
 
 from bs4 import BeautifulSoup
@@ -253,7 +258,7 @@ from .models import Document
 
 SKIP_EXTENSIONS = {
     ".css", ".js", ".png", ".jpg", ".jpeg", ".gif", ".svg", ".ico",
-    ".pdf", ".zip", ".rar", ".doc", ".docx", ".xls", ".xlsx", ".mp4",
+    ".webp", ".mp4", ".mp3", ".wav", ".avi",
 }
 
 DOCUMENT_HINTS = (
@@ -261,16 +266,24 @@ DOCUMENT_HINTS = (
     "规定", "意见", "决定", "批复", "报告", "招聘", "招考", "备案",
 )
 
-DATE_RE = re.compile(r"(20\d{2}[-/.年]\d{1,2}[-/.月]\d{1,2}日?)")
-
-
 def normalize_text(value: str) -> str:
     return " ".join(value.split())
 
 
 def canonical_url(url: str, base_url: str) -> str:
     parsed = urlparse(urljoin(base_url, url))
-    return parsed._replace(fragment="").geturl()
+    host = parsed.hostname
+    if host:
+        host = host.lower()
+        port = parsed.port
+        is_default_port = (parsed.scheme == "http" and port == 80) or (
+            parsed.scheme == "https" and port == 443
+        )
+        netloc = host if port is None or is_default_port else f"{host}:{port}"
+        parsed = parsed._replace(netloc=netloc)
+    if not parsed.fragment.startswith("/"):
+        parsed = parsed._replace(fragment="")
+    return parsed.geturl()
 
 
 def is_document_candidate(url: str, text: str) -> bool:
@@ -305,7 +318,6 @@ def extract_documents(
     source_url: str,
 ) -> list[Document]:
     docs = []
-    seen = set()
     for url, text in extract_links(html, base_url):
         if not is_document_candidate(url, text):
             continue
@@ -353,6 +365,7 @@ git commit -m "feat(monitor): extract candidate official documents"
 **Interfaces:**
 - `HttpFetcher.fetch(url) -> FetchResult`
 - `BrowserFetcher.fetch(url) -> FetchResult`
+- `BrowserFetcher.close() -> None`（实例内复用同一浏览器，结束时显式关闭）
 
 **Step 1: Write failing tests**
 
@@ -434,23 +447,52 @@ class HttpFetcher:
 class BrowserFetcher:
     def __init__(self, timeout: int = 30):
         self.timeout = timeout
+        self._http = HttpFetcher(timeout=self.timeout)
+        self._playwright = None
+        self._browser = None
+        self._playwright_error = None
+
+    def _ensure_browser(self):
+        if self._browser is not None:
+            return self._browser
+        if self._playwright_error is not None:
+            raise self._playwright_error
+        try:
+            from playwright.sync_api import sync_playwright
+        except ImportError as exc:
+            self._playwright_error = RuntimeError(f"Playwright is not available: {exc}")
+            raise self._playwright_error
+        self._playwright = sync_playwright().start()
+        try:
+            self._browser = self._playwright.chromium.launch(headless=True)
+        except Exception:
+            self._playwright.stop()
+            self._playwright = None
+            raise
+        return self._browser
 
     def fetch(self, url: str) -> FetchResult:
         try:
-            from playwright.sync_api import sync_playwright
-        except ImportError:
-            return HttpFetcher(timeout=self.timeout).fetch(url)
-        try:
-            with sync_playwright() as playwright:
-                browser = playwright.chromium.launch(headless=True)
-                page = browser.new_page(user_agent=DEFAULT_HEADERS["User-Agent"])
+            browser = self._ensure_browser()
+            page = browser.new_page(user_agent=DEFAULT_HEADERS["User-Agent"])
+            try:
                 page.goto(url, wait_until="domcontentloaded", timeout=self.timeout * 1000)
                 html = page.content()
                 final_url = page.url
-                browser.close()
+            finally:
+                page.close()
             return FetchResult(url=url, status=200, html=html, final_url=final_url)
         except Exception as exc:
-            return FetchResult(url=url, error=str(exc))
+            print(f"[fetcher] browser failed for {url}: {exc}; falling back to HTTP")
+            return self._http.fetch(url)
+
+    def close(self) -> None:
+        if self._browser is not None:
+            self._browser.close()
+            self._browser = None
+        if self._playwright is not None:
+            self._playwright.stop()
+            self._playwright = None
 ```
 
 **Step 4: Run test and confirm it passes**
@@ -477,7 +519,7 @@ git commit -m "feat(monitor): add HTTP and browser fetchers"
 
 **Interfaces:**
 - `StateStore(path)`
-- `StateStore.update(documents, errors) -> tuple[list[Document], bool]`
+- `StateStore.update(documents, errors, sites_ok) -> tuple[list[Document], bool]`
 - `StateStore.save() -> None`
 
 **Step 1: Write failing tests**
@@ -496,16 +538,36 @@ def doc(url: str, title: str = "关于设立律师事务所的公告") -> Docume
 
 def test_first_run_is_baseline_and_second_run_finds_new(tmp_path: Path):
     store = StateStore(tmp_path / "state.json")
-    _, baseline = store.update([doc("https://example.gov.cn/1")], {})
+    _, baseline = store.update([doc("https://example.gov.cn/1")], {}, sites_ok=True)
     assert baseline is True
-    new, baseline = store.update([doc("https://example.gov.cn/1"), doc("https://example.gov.cn/2")], {})
+    assert store.data["baselined"] is True
+    new, baseline = store.update(
+        [doc("https://example.gov.cn/1"), doc("https://example.gov.cn/2")], {}, sites_ok=True
+    )
     assert baseline is False
     assert [item.url for item in new] == ["https://example.gov.cn/2"]
 
 
+def test_empty_first_run_still_baselines_and_next_run_notifies_new(tmp_path: Path):
+    store = StateStore(tmp_path / "state.json")
+    new, baseline = store.update([], {}, sites_ok=True)
+    assert baseline is True
+    assert store.data["baselined"] is True
+    new, baseline = store.update([doc("https://example.gov.cn/later")], {}, sites_ok=True)
+    assert baseline is False
+    assert [item.url for item in new] == ["https://example.gov.cn/later"]
+
+
+def test_all_sites_failed_leaves_state_unbaselined(tmp_path: Path):
+    store = StateStore(tmp_path / "state.json")
+    _, baseline = store.update([], {"https://example.gov.cn/": "boom"}, sites_ok=False)
+    assert baseline is True
+    assert store.data["baselined"] is False
+
+
 def test_state_cleans_records_older_than_30_days(tmp_path: Path):
     store = StateStore(tmp_path / "state.json")
-    store.update([doc("https://example.gov.cn/old")], {})
+    store.update([doc("https://example.gov.cn/old")], {}, sites_ok=True)
     old_key = "https://example.gov.cn/old"
     store.data["documents"][old_key]["last_seen"] = (
         datetime.now(timezone.utc) - timedelta(days=31)
@@ -541,12 +603,23 @@ def parse_iso(value: str) -> datetime:
 class StateStore:
     def __init__(self, path: Path):
         self.path = Path(path)
-        self.data = {"documents": {}, "list_urls": {}, "errors": {}}
+        self.data = {"documents": {}, "list_urls": {}, "errors": {}, "baselined": False}
         if self.path.exists():
-            self.data.update(json.loads(self.path.read_text(encoding="utf-8")))
+            loaded = json.loads(self.path.read_text(encoding="utf-8"))
+            if isinstance(loaded, dict):
+                for key in ("documents", "list_urls", "errors"):
+                    value = loaded.get(key)
+                    if isinstance(value, dict):
+                        self.data[key] = value
+                self.data["baselined"] = bool(loaded.get("baselined", False))
 
-    def update(self, documents: list[Document], errors: dict[str, str]) -> tuple[list[Document], bool]:
-        baseline = not self.data["documents"]
+    def update(
+        self,
+        documents: list[Document],
+        errors: dict[str, str],
+        sites_ok: bool,
+    ) -> tuple[list[Document], bool]:
+        baseline = not self.data["baselined"]
         now = now_iso()
         new_items = []
         for document in documents:
@@ -560,13 +633,16 @@ class StateStore:
                 "fingerprint": document.fingerprint,
             }
         self.data["errors"] = errors
+        if sites_ok:
+            self.data["baselined"] = True
         self._retain()
         return new_items, baseline
 
     def _retain(self) -> None:
         cutoff = datetime.now(timezone.utc) - timedelta(days=30)
         stale = [
-            url for url, record in self.data["documents"].items()
+            url
+            for url, record in self.data["documents"].items()
             if parse_iso(record["last_seen"]) < cutoff
         ]
         for url in stale:
@@ -574,10 +650,12 @@ class StateStore:
 
     def save(self) -> None:
         self.path.parent.mkdir(parents=True, exist_ok=True)
-        self.path.write_text(
+        tmp_path = self.path.with_name(self.path.name + ".tmp")
+        tmp_path.write_text(
             json.dumps(self.data, ensure_ascii=False, indent=2) + "\n",
             encoding="utf-8",
         )
+        os.replace(tmp_path, self.path)
 ```
 
 `monitor/state.json` initial content:
@@ -586,7 +664,8 @@ class StateStore:
 {
   "documents": {},
   "list_urls": {},
-  "errors": {}
+  "errors": {},
+  "baselined": false
 }
 ```
 
@@ -787,12 +866,26 @@ import requests
 from .models import Document
 
 
+WECOM_MAX_CONTENT_BYTES = 1800
+
+
 def build_wecom_payload(items: list[Document]) -> dict:
-    lines = [
-        f"LawWatch 发现 {len(items)} 条新公文",
-    ]
+    header = f"LawWatch 发现 {len(items)} 条新公文"
+    lines = [header]
+    shown = 0
     for item in items:
-        lines.append(f"- {item.province}：{item.title}\n  {item.url}")
+        candidate = f"- {item.province}：{item.title}\n  {item.url}"
+        remaining = len(items) - shown - 1
+        reserve = (
+            len(f"\n(仅显示前 {shown + 1} 条，详见邮件)".encode("utf-8")) if remaining else 0
+        )
+        trial = "\n".join([*lines, candidate]).encode("utf-8")
+        if len(trial) + reserve > WECOM_MAX_CONTENT_BYTES:
+            break
+        lines.append(candidate)
+        shown += 1
+    if shown < len(items):
+        lines.append(f"(仅显示前 {shown} 条，详见邮件)")
     return {
         "msgtype": "text",
         "text": {"content": "\n".join(lines)},
@@ -829,18 +922,28 @@ def send_email(settings: dict, items: list[Document]) -> None:
 **Step 4: Add integration helper to `monitor/notify.py`**
 
 ```python
-def notify_all(items: list[Document]) -> None:
+def notify_all(items: list[Document]) -> bool:
     wecom = os.getenv("WECOM_WEBHOOK", "").strip()
     user = os.getenv("SMTP_USER", "").strip()
     auth = os.getenv("SMTP_AUTH_CODE", "").strip()
     to = [x.strip() for x in os.getenv("EMAIL_TO", "").split(",") if x.strip()]
+    any_succeeded = False
     if wecom:
-        send_wecom(wecom, items)
+        try:
+            send_wecom(wecom, items)
+            any_succeeded = True
+        except Exception as exc:
+            print(f"[notify] WeCom notification failed: {exc}", file=sys.stderr)
     if user and auth and to:
-        send_email(
-            {"host": "smtp.qq.com", "port": 465, "user": user, "password": auth, "to": to},
-            items,
-        )
+        try:
+            send_email(
+                {"host": "smtp.qq.com", "port": 465, "user": user, "password": auth, "to": to},
+                items,
+            )
+            any_succeeded = True
+        except Exception as exc:
+            print(f"[notify] email notification failed: {exc}", file=sys.stderr)
+    return any_succeeded
 ```
 
 **Step 5: Run test and confirm it passes**
@@ -865,7 +968,7 @@ git commit -m "feat(monitor): add WeCom and QQ mail notifications"
 - Create: `tests/test_run.py`
 
 **Interfaces:**
-- `run(send: bool = False, max_pages: int = 30) -> dict`
+- `run(send: bool = False, max_pages: int = 30, persist: bool = True) -> dict`
 
 **Step 1: Write failing test**
 
@@ -911,28 +1014,45 @@ from .notify import notify_all
 from .state import StateStore
 
 
-def run(send: bool = False, max_pages: int = 30) -> dict:
+def run(send: bool = False, max_pages: int = 30, persist: bool = True) -> dict:
     sites = load_sites()
     store = StateStore(Path(__file__).resolve().parent / "state.json")
     all_documents = []
     all_errors = {}
     list_urls = store.data.get("list_urls", {})
+    any_site_ok = False
 
-    for site in sites:
-        fetcher = BrowserFetcher() if site.dynamic else HttpFetcher()
-        known = tuple(url for url in list_urls.get(site.url, []) if is_list_candidate(url, ""))
-        documents, discovered, errors = discover_for_site(
-            site, fetcher, known_list_urls=known, max_pages=max_pages
-        )
-        list_urls[site.url] = [url for url in discovered if is_list_candidate(url, "")]
-        all_documents.extend(documents)
-        all_errors.update(errors)
+    browser_fetcher = BrowserFetcher() if any(site.dynamic for site in sites) else None
+    try:
+        for site in sites:
+            try:
+                fetcher = browser_fetcher if site.dynamic else HttpFetcher()
+                known = tuple(url for url in list_urls.get(site.url, []) if is_list_candidate(url, ""))
+                documents, discovered, errors = discover_for_site(
+                    site, fetcher, known_list_urls=known, max_pages=max_pages
+                )
+                if not errors:
+                    any_site_ok = True
+                list_urls[site.url] = [url for url in discovered if is_list_candidate(url, "")]
+                all_documents.extend(documents)
+                all_errors.update(errors)
+            except Exception as exc:
+                all_errors[site.url] = str(exc)
+    finally:
+        if browser_fetcher is not None:
+            browser_fetcher.close()
 
-    new_items, baseline = store.update(all_documents, all_errors)
+    new_items, baseline = store.update(all_documents, all_errors, sites_ok=any_site_ok)
     store.data["list_urls"] = list_urls
-    store.save()
+
+    notifications_ok = True
     if new_items and send and not baseline:
-        notify_all(new_items)
+        notifications_ok = notify_all(new_items)
+
+    persisted = False
+    if persist and notifications_ok:
+        store.save()
+        persisted = True
 
     summary = {
         "sites": len(sites),
@@ -940,18 +1060,45 @@ def run(send: bool = False, max_pages: int = 30) -> dict:
         "new_count": len(new_items),
         "baseline": baseline,
         "errors": len(all_errors),
+        "notifications_ok": notifications_ok,
+        "persisted": persisted,
     }
     print(json.dumps(summary, ensure_ascii=False))
+    if not persist:
+        would_notify = bool(new_items and send and not baseline)
+        print(
+            "dry run: state was NOT persisted; "
+            f"baseline={baseline}, would_notify={would_notify}, new_items={len(new_items)}",
+            file=sys.stderr,
+        )
+    elif not notifications_ok:
+        print(
+            "notification failure: no configured channel succeeded; dedup state was NOT saved. "
+            "The batch will be retried on the next run.",
+            file=sys.stderr,
+        )
     return summary
 
 
-def main() -> None:
+def main() -> int:
     parser = argparse.ArgumentParser()
     parser.add_argument("--send", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--max-pages", type=int, default=30)
     args = parser.parse_args()
-    run(send=args.send and not args.dry_run, max_pages=args.max_pages)
+    result = run(
+        send=args.send and not args.dry_run,
+        max_pages=args.max_pages,
+        persist=not args.dry_run,
+    )
+    if result.get("notifications_ok") is False:
+        print("monitor: notifications failed; exiting with status 1", file=sys.stderr)
+        return 1
+    return 0
+
+
+if __name__ == "__main__":
+    raise SystemExit(main())
 ```
 
 **Step 4: Run test and confirm it passes**
@@ -1019,13 +1166,17 @@ on:
     - cron: "*/30 * * * *"
   workflow_dispatch:
 
+concurrency:
+  group: monitor
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
 jobs:
   monitor:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -1041,7 +1192,7 @@ jobs:
           python -m playwright install --with-deps chromium
 
       - name: Run monitor
-        run: python -m monitor.run --send
+        run: python -m monitor.run --send --max-pages 15
         env:
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_AUTH_CODE: ${{ secrets.SMTP_AUTH_CODE }}
@@ -1055,10 +1206,20 @@ jobs:
           git add monitor/state.json
           if git diff --cached --quiet; then
             echo "No state changes"
-          else
-            git commit -m "chore(monitor): update dedup state"
-            git push
+            exit 0
           fi
+          git commit -m "chore(monitor): update dedup state"
+          attempt=0
+          while ! git pull --rebase origin "${GITHUB_REF_NAME}"; do
+            attempt=$((attempt + 1))
+            if [ "${attempt}" -ge 3 ]; then
+              echo "::error::Could not pull/rebase the latest branch changes after 3 attempts; the state commit was NOT pushed. Run the workflow again to retry."
+              exit 1
+            fi
+            echo "Pull/rebase failed (attempt ${attempt}); retrying in 5 seconds"
+            sleep 5
+          done
+          git push
 ```
 
 **README 内容：**
@@ -1066,8 +1227,9 @@ jobs:
 1. 在 `Settings → Secrets and variables → Actions` 添加 `SMTP_USER`、`SMTP_AUTH_CODE`、`EMAIL_TO`、`WECOM_WEBHOOK`。
 2. 在 GitHub Actions 手动运行一次 `Monitor provincial legal notices`；首次运行只建立基线，不发通知。
 3. 让工作流保持启用，每 30 分钟自动运行；发现新增公文后推送企业微信并发送邮件。
-4. 本地测试：`python -m monitor.run --dry-run`。
+4. 本地测试：`python -m monitor.run --dry-run --max-pages 1`（不发送通知、不写 `monitor/state.json`）。
 5. 本地测试完整通知：`python -m monitor.run --send`（需要先设好环境变量）。
+6. 注意：GitHub 托管 Runner 可能被部分国内政府网站限流或屏蔽；首次真实运行后核对日志与 `monitor/state.json`（`baselined` 是否变为 `true`），必要时改用中国大陆自托管 Runner 或配置代理。
 
 **Commit:**
 
@@ -1090,7 +1252,7 @@ git status --short
 - `compileall` 退出码为 0。
 - `monitor/sites.csv` 有 31 行。
 - `monitor/state.json` 保持合法 JSON。
-- 本地 `--dry-run` 不会调用通知函数。
+- 本地 `--dry-run` 不会调用通知函数，也不会写入 `monitor/state.json`。
 
 
 

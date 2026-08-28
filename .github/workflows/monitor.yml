@@ -5,13 +5,17 @@ on:
     - cron: "*/30 * * * *"
   workflow_dispatch:
 
+concurrency:
+  group: monitor
+  cancel-in-progress: false
+
 permissions:
   contents: write
 
 jobs:
   monitor:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 20
     steps:
       - uses: actions/checkout@v4
         with:
@@ -27,7 +31,7 @@ jobs:
           python -m playwright install --with-deps chromium
 
       - name: Run monitor
-        run: python -m monitor.run --send
+        run: python -m monitor.run --send --max-pages 15
         env:
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_AUTH_CODE: ${{ secrets.SMTP_AUTH_CODE }}
@@ -41,7 +45,17 @@ jobs:
           git add monitor/state.json
           if git diff --cached --quiet; then
             echo "No state changes"
-          else
-            git commit -m "chore(monitor): update dedup state"
-            git push
+            exit 0
           fi
+          git commit -m "chore(monitor): update dedup state"
+          attempt=0
+          while ! git pull --rebase origin "${GITHUB_REF_NAME}"; do
+            attempt=$((attempt + 1))
+            if [ "${attempt}" -ge 3 ]; then
+              echo "::error::Could not pull/rebase the latest branch changes after 3 attempts; the state commit was NOT pushed. Run the workflow again to retry."
+              exit 1
+            fi
+            echo "Pull/rebase failed (attempt ${attempt}); retrying in 5 seconds"
+            sleep 5
+          done
+          git push

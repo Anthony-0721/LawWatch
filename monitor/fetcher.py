@@ -1,3 +1,5 @@
+import sys
+
 import requests
 
 from .models import FetchResult
@@ -40,20 +42,65 @@ class HttpFetcher:
 class BrowserFetcher:
     def __init__(self, timeout: int = 30):
         self.timeout = timeout
+        self._http = HttpFetcher(timeout=self.timeout)
+        self._playwright = None
+        self._browser = None
+        self._playwright_error = None
+
+    def _ensure_browser(self):
+        if self._browser is not None:
+            return self._browser
+        if self._playwright_error is not None:
+            raise self._playwright_error
+        try:
+            from playwright.sync_api import sync_playwright
+        except ImportError as exc:
+            self._playwright_error = RuntimeError(f"Playwright is not available: {exc}")
+            raise self._playwright_error
+        self._playwright = sync_playwright().start()
+        try:
+            self._browser = self._playwright.chromium.launch(headless=True)
+        except Exception:
+            if self._playwright is not None:
+                try:
+                    self._playwright.stop()
+                except Exception:
+                    pass
+            self._playwright = None
+            raise
+        return self._browser
 
     def fetch(self, url: str) -> FetchResult:
         try:
-            from playwright.sync_api import sync_playwright
-        except ImportError:
-            return HttpFetcher(timeout=self.timeout).fetch(url)
-        try:
-            with sync_playwright() as playwright:
-                browser = playwright.chromium.launch(headless=True)
-                page = browser.new_page(user_agent=DEFAULT_HEADERS["User-Agent"])
+            browser = self._ensure_browser()
+            page = browser.new_page(user_agent=DEFAULT_HEADERS["User-Agent"])
+            try:
                 page.goto(url, wait_until="domcontentloaded", timeout=self.timeout * 1000)
                 html = page.content()
                 final_url = page.url
-                browser.close()
+            finally:
+                try:
+                    page.close()
+                except Exception:
+                    pass
             return FetchResult(url=url, status=200, html=html, final_url=final_url)
         except Exception as exc:
-            return FetchResult(url=url, error=str(exc))
+            print(
+                f"[fetcher] browser failed for {url}: {exc}; falling back to HTTP",
+                file=sys.stderr,
+            )
+            return self._http.fetch(url)
+
+    def close(self) -> None:
+        if self._browser is not None:
+            try:
+                self._browser.close()
+            except Exception:
+                pass
+            self._browser = None
+        if self._playwright is not None:
+            try:
+                self._playwright.stop()
+            except Exception:
+                pass
+            self._playwright = None

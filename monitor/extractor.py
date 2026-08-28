@@ -1,5 +1,4 @@
 import hashlib
-import re
 from urllib.parse import urljoin, urlparse
 
 from bs4 import BeautifulSoup
@@ -8,15 +7,13 @@ from .models import Document
 
 SKIP_EXTENSIONS = {
     ".css", ".js", ".png", ".jpg", ".jpeg", ".gif", ".svg", ".ico",
-    ".pdf", ".zip", ".rar", ".doc", ".docx", ".xls", ".xlsx", ".mp4",
+    ".webp", ".mp4", ".mp3", ".wav", ".avi",
 }
 
 DOCUMENT_HINTS = (
     "公告", "公示", "通知", "公文", "政策", "文件", "条例", "办法",
     "规定", "意见", "决定", "批复", "报告", "招聘", "招考", "备案",
 )
-
-DATE_RE = re.compile(r"(20\d{2}[-/.年]\d{1,2}[-/.月]\d{1,2}日?)")
 
 
 def normalize_text(value: str) -> str:
@@ -25,7 +22,18 @@ def normalize_text(value: str) -> str:
 
 def canonical_url(url: str, base_url: str) -> str:
     parsed = urlparse(urljoin(base_url, url))
-    return parsed._replace(fragment="").geturl()
+    host = parsed.hostname
+    if host:
+        host = host.lower()
+        port = parsed.port
+        is_default_port = (parsed.scheme == "http" and port == 80) or (
+            parsed.scheme == "https" and port == 443
+        )
+        netloc = host if port is None or is_default_port else f"{host}:{port}"
+        parsed = parsed._replace(netloc=netloc)
+    if not parsed.fragment.startswith("/"):
+        parsed = parsed._replace(fragment="")
+    return parsed.geturl()
 
 
 def is_document_candidate(url: str, text: str) -> bool:
@@ -43,11 +51,14 @@ def extract_links(html: str, base_url: str) -> list[tuple[str, str]]:
     soup = BeautifulSoup(html, "lxml")
     links = []
     for anchor in soup.select("a[href]"):
-        href = canonical_url(anchor.get("href", ""), base_url)
+        try:
+            href = canonical_url(anchor.get("href", ""), base_url)
+        except ValueError:
+            continue
         if not href.startswith(("http://", "https://")):
             continue
         parsed = urlparse(href)
-        if parsed.netloc != urlparse(base_url).netloc:
+        if parsed.netloc != urlparse(canonical_url(base_url, base_url)).netloc:
             continue
         links.append((href, normalize_text(anchor.get_text(" ", strip=True))))
     return links
@@ -60,7 +71,6 @@ def extract_documents(
     source_url: str,
 ) -> list[Document]:
     docs = []
-    seen = set()
     for url, text in extract_links(html, base_url):
         if not is_document_candidate(url, text):
             continue
