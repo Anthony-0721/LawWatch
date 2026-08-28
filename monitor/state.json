@@ -1,6 +1,1978 @@
 {
-  "documents": {},
-  "list_urls": {},
-  "errors": {},
-  "baselined": false
+  "documents": {
+    "https://xzxk.sfj.sh.gov.cn/hall/doc-detail.jsp?id=01a046f33145736c9c93534ca3409376": {
+      "title": "关于上海华夏汇鸿律师事务所律师事务所及分所设立、变更、注销许可——律师事务所变更许可的准予行政审批决定书 文号：沪司审字（2026）9595号 发布时间：2026-08-28 13:58",
+      "province": "上海",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "2cafba1d6b91ce17"
+    },
+    "https://xzxk.sfj.sh.gov.cn/hall/doc-detail.jsp?id=01a046f29dc07971a17ddcb6914046ee": {
+      "title": "关于王亚琴,邓 惠,何建文律师事务所及分所设立、变更、注销许可——律师事务所设立许可的准予行政审批决定书 文号：沪司审字（2026）9594号 发布时间：2026-08-28 13:58",
+      "province": "上海",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "19a6cac92897a7cb"
+    },
+    "https://xzxk.sfj.sh.gov.cn/hall/doc-detail.jsp?id=01a04259a2537554a962c2c0909690a0": {
+      "title": "关于郭臣臣律师执业、变更执业机构许可（含香港、澳门永久性居民中的中国居民及台湾居民申请律师执业、变更执业机构）——律师执业许可的准予行政审批决定书 文号：沪司审字（2026）9593号 发布时间：2026-08-27 16:32",
+      "province": "上海",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "974e339335e11991"
+    },
+    "https://xzxk.sfj.sh.gov.cn/hall/doc-detail.jsp?id=01a0425a07487fa88e8cba8709d5b85d": {
+      "title": "关于杜心怡律师执业、变更执业机构许可（含香港、澳门永久性居民中的中国居民及台湾居民申请律师执业、变更执业机构）——律师执业许可的准予行政审批决定书 文号：沪司审字（2026）9592号 发布时间：2026-08-27 16:33",
+      "province": "上海",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "5bd8d3dee59fb073"
+    },
+    "https://xzxk.sfj.sh.gov.cn/hall/doc-detail.jsp?id=01a0425c8fd378e98d8aef40195392d6": {
+      "title": "关于刘梦媛律师执业、变更执业机构许可（含香港、澳门永久性居民中的中国居民及台湾居民申请律师执业、变更执业机构）——律师执业许可的准予行政审批决定书 文号：沪司审字（2026）9591号 发布时间：2026-08-27 16:35",
+      "province": "上海",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "f46c24fabf4d340e"
+    },
+    "https://xzxk.sfj.sh.gov.cn/hall/doc-detail.jsp?id=01a0425ce74c7d7fbd0822c3f45b8944": {
+      "title": "关于钱程律师执业、变更执业机构许可（含香港、澳门永久性居民中的中国居民及台湾居民申请律师执业、变更执业机构）——律师执业许可的准予行政审批决定书 文号：沪司审字（2026）9590号 发布时间：2026-08-27 16:36",
+      "province": "上海",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "64d4a6543c7dc10f"
+    },
+    "https://xzxk.sfj.sh.gov.cn/hall/doc-detail.jsp?id=01a0425d397f7f9591ac829a0a5a8298": {
+      "title": "关于李晓莹律师执业、变更执业机构许可（含香港、澳门永久性居民中的中国居民及台湾居民申请律师执业、变更执业机构）——律师执业许可的准予行政审批决定书 文号：沪司审字（2026）9589号 发布时间：2026-08-27 16:36",
+      "province": "上海",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "37b1cfcf62ea6216"
+    },
+    "https://xzxk.sfj.sh.gov.cn/hall/doc-detail.jsp?id=01a0425d8de476a1941b69133f413dcb": {
+      "title": "关于高梓淳律师执业、变更执业机构许可（含香港、澳门永久性居民中的中国居民及台湾居民申请律师执业、变更执业机构）——律师执业许可的准予行政审批决定书 文号：沪司审字（2026）9588号 发布时间：2026-08-27 16:37",
+      "province": "上海",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "b09d9ea88436cf28"
+    },
+    "https://xzxk.sfj.sh.gov.cn/hall/doc-detail.jsp?id=01a0425ddf107cd38046f657803f7ba6": {
+      "title": "关于赵雨萌律师执业、变更执业机构许可（含香港、澳门永久性居民中的中国居民及台湾居民申请律师执业、变更执业机构）——律师执业许可的准予行政审批决定书 文号：沪司审字（2026）9587号 发布时间：2026-08-27 16:37",
+      "province": "上海",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "c51c80b92911cf35"
+    },
+    "https://xzxk.sfj.sh.gov.cn/hall/doc-detail.jsp?id=01a0425e2b35720694407c388ac7fe09": {
+      "title": "关于方正律师执业、变更执业机构许可（含香港、澳门永久性居民中的中国居民及台湾居民申请律师执业、变更执业机构）——律师执业许可的准予行政审批决定书 文号：沪司审字（2026）9586号 发布时间：2026-08-27 16:37",
+      "province": "上海",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "db95e648b87cec70"
+    },
+    "https://sft.ln.gov.cn/eportal/fileDir/data/lngov/P020191106367151289629.docx": {
+      "title": "è¾½å®çå¸æ³å æ¿åºä¿¡æ¯å ¬å¼ç³è¯·è¡¨",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "bff17c6215fae1cf"
+    },
+    "https://sft.ln.gov.cn/uiFramework/js/pdfjs/web/viewer.html?file=/sft/articleFileDir/2024-06/26/ee862899524d46a18ca6add21b704eee/2024062611422114554.pdf&aisite-article-file=sft,ee862899524d46a18ca6add21b704eee,2024-06-26 11:42:27": {
+      "title": "è¾½å®çé«çº§äººæ°æ³é¢ è¾½å®çå¸æ³å å ³äºå°åãè¾½å®çå¼å±åäºæ¡ä»¶å®¡å¤é¶...",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "27febb8ba3f60f2a"
+    },
+    "https://sft.ln.gov.cn/sft/articleFileDir/2024-06/26/ee862899524d46a18ca6add21b704eee/2024062611422114554.pdf": {
+      "title": "ç°è¡ææ",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "9bc0b606c200fcea"
+    },
+    "https://sft.ln.gov.cn/uiFramework/js/pdfjs/web/viewer.html?file=/sft/articleFileDir/2024-06/26/51108bcbb4c544b6b6593ed0f0357179/2024062611203919541.pdf&aisite-article-file=sft,51108bcbb4c544b6b6593ed0f0357179,2024-06-26 11:20:43": {
+      "title": "è¾½å®çé«çº§äººæ°æ³é¢ è¾½å®çå¸æ³å å°åãå ³äºå¼å±å¾å¸è°è§£å·¥ä½çå®æ½æ¹æ¡...",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "4c169bc878a86624"
+    },
+    "https://sft.ln.gov.cn/sft/articleFileDir/2024-06/26/51108bcbb4c544b6b6593ed0f0357179/2024062611203919541.pdf": {
+      "title": "ç°è¡ææ",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "a747aa2f7bebaf43"
+    },
+    "https://sft.ln.gov.cn/uiFramework/js/pdfjs/web/viewer.html?file=/sft/articleFileDir/2024-06/26/db9678bdab2a457e8b2851852e2c23fa/2024062611194795678.pdf&aisite-article-file=sft,db9678bdab2a457e8b2851852e2c23fa,2024-06-26 11:19:55": {
+      "title": "è¾½å®çé«çº§äººæ°æ³é¢ è¾½å®çäººæ°æ£å¯é¢ è¾½å®çå ¬å®å è¾½å®çå¸æ³å å ³äºå°...",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "1fa54392610d0738"
+    },
+    "https://sft.ln.gov.cn/sft/articleFileDir/2024-06/26/db9678bdab2a457e8b2851852e2c23fa/2024062611194795678.pdf": {
+      "title": "ç°è¡ææ",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "6bd96243ce87760e"
+    },
+    "https://sft.ln.gov.cn/uiFramework/js/pdfjs/web/viewer.html?file=/sft/articleFileDir/2024-06/26/8a17ae9521cf4c78837c5111b368c7bd/2024062611162932375.pdf&aisite-article-file=sft,8a17ae9521cf4c78837c5111b368c7bd,2024-06-26 11:16:40": {
+      "title": "å ³äºå¼éç½ä¸åè¯åè½ å®ç°å ¬è¯âæå¤è·ä¸æ¬¡âçå®æ½åæ³",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "4b7876430bdafa75"
+    },
+    "https://sft.ln.gov.cn/sft/articleFileDir/2024-06/26/8a17ae9521cf4c78837c5111b368c7bd/2024062611162932375.pdf": {
+      "title": "ç°è¡ææ",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "0526b68af44cf302"
+    },
+    "https://sft.ln.gov.cn/uiFramework/js/pdfjs/web/viewer.html?file=/sft/articleFileDir/2024-06/26/e48eee88c46e48d38e61f4923d328300/2024062611150477446.pdf&aisite-article-file=sft,e48eee88c46e48d38e61f4923d328300,2024-06-26 11:15:12": {
+      "title": "è¾½å®çå ¬è¯åå©çç®¡çåæ³",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "9b695c7400d186da"
+    },
+    "https://sft.ln.gov.cn/sft/articleFileDir/2024-06/26/e48eee88c46e48d38e61f4923d328300/2024062611150477446.pdf": {
+      "title": "ç°è¡ææ",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "c7c347a445cb3a51"
+    },
+    "https://sft.ln.gov.cn/uiFramework/js/pdfjs/web/viewer.html?file=/sft/articleFileDir/2024-06/26/c9cdff6fcc494714928bb87bcbfc699a/2024062611141296775.pdf&aisite-article-file=sft,c9cdff6fcc494714928bb87bcbfc699a,2024-06-26 11:14:22": {
+      "title": "å ³äºå å¼ºå ¨çéå½¹åäººæ³å¾æ´å©å·¥ä½çå®æ½æè§",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "86365924ca768d45"
+    },
+    "https://sft.ln.gov.cn/sft/articleFileDir/2024-06/26/c9cdff6fcc494714928bb87bcbfc699a/2024062611141296775.pdf": {
+      "title": "ç°è¡ææ",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "c171547aa9450dd5"
+    },
+    "https://sft.ln.gov.cn/uiFramework/js/pdfjs/web/viewer.html?file=/sft/articleFileDir/2024-06/26/400829c156404338ac31d84b247a0d56/2024062611125315132.pdf&aisite-article-file=sft,400829c156404338ac31d84b247a0d56,2024-06-26 11:13:01": {
+      "title": "è¾½å®çé«çº§äººæ°æ³é¢ è¾½å®çäººæ°æ£å¯é¢ è¾½å®çå¸æ³å å ³äºå°åãè¾½å®çå ³...",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "402c14d89d1f4bf0"
+    },
+    "https://sft.ln.gov.cn/sft/articleFileDir/2024-06/26/400829c156404338ac31d84b247a0d56/2024062611125315132.pdf": {
+      "title": "ç°è¡ææ",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "39b7aa42e64e8582"
+    },
+    "https://sft.ln.gov.cn/uiFramework/js/pdfjs/web/viewer.html?file=/sft/articleFileDir/2024-06/26/25d70047b6324d7c8600aa95b66b824f/2024062611091546666.pdf&aisite-article-file=sft,25d70047b6324d7c8600aa95b66b824f,2024-06-26 11:09:35": {
+      "title": "ãè¾½å®çæ°è¥ä¼ä¸å ¨çå½å¨ææ³å¾æå¡å·¥ä½æ¹æ¡ã",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "2699c54498e10c02"
+    },
+    "https://sft.ln.gov.cn/sft/articleFileDir/2024-06/26/25d70047b6324d7c8600aa95b66b824f/2024062611091546666.pdf": {
+      "title": "ç°è¡ææ",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "eca18fe948aac5d8"
+    },
+    "https://sft.ln.gov.cn/uiFramework/js/pdfjs/web/viewer.html?file=/sft/articleFileDir/2024-06/26/90245aa680a1425691270524d89665da/2024062610480229450.pdf&aisite-article-file=sft,90245aa680a1425691270524d89665da,2024-06-26 10:48:23": {
+      "title": "å ³äºè§èæ¶å¤å ¬è¯ä¸å¡ç®¡çæå ³å·¥ä½çéç¥",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "8086bf199f443833"
+    },
+    "https://sft.ln.gov.cn/sft/articleFileDir/2024-06/26/90245aa680a1425691270524d89665da/2024062610480229450.pdf": {
+      "title": "ç°è¡ææ",
+      "province": "辽宁省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "9d9fe85c3e0134ae"
+    },
+    "https://sft.hlj.gov.cn/sft/c103934/redirect_firstArticle.shtml": {
+      "title": "å ³äºæä»¬",
+      "province": "黑龙江省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "cac3e7b4b35d9e17"
+    },
+    "http://sft.yn.gov.cn/gfxwj/index.jhtml": {
+      "title": "行政规范性文件",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "4ff9084aad15e875"
+    },
+    "http://sft.yn.gov.cn/sgsml/index.jhtml": {
+      "title": "云南省司法厅双公示目录",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "33096692d6a672b9"
+    },
+    "http://sft.yn.gov.cn/xzxkgs/index.jhtml": {
+      "title": "行政许可公示",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "8bc6fd052025dd01"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/index.jhtml": {
+      "title": "行政处罚公示",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "45f04670ba7b3773"
+    },
+    "http://sft.yn.gov.cn/xmcggg/index.jhtml": {
+      "title": "项目采购公告",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "556df64fbd51833f"
+    },
+    "http://sft.yn.gov.cn/sgsml/369649.jhtml": {
+      "title": "云南省司法厅“双公示”目录（自然人） [2021-04-21]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "0022531999acbc16"
+    },
+    "http://sft.yn.gov.cn/sgsml/369648.jhtml": {
+      "title": "云南省司法厅“双公示”目录（法人及其他组织） [2021-04-21]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "e15042e79a09438b"
+    },
+    "http://sft.yn.gov.cn/zfxxgksfjdsgs/406169.jhtml": {
+      "title": "行政许可决定书（云司鉴许决字〔2026〕893号） [2026-07-15]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "e99341d1dae9cf4f"
+    },
+    "http://sft.yn.gov.cn/zfxxgksfjdsgs/406170.jhtml": {
+      "title": "行政许可决定书（云司鉴许决字〔2026〕892号） [2026-07-15]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "d655491c2aae4d47"
+    },
+    "http://sft.yn.gov.cn/zfxxgksfjdsgs/406171.jhtml": {
+      "title": "行政许可决定书（云司鉴许决字〔2026〕891号） [2026-07-15]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "1e858d0bfadfe757"
+    },
+    "http://sft.yn.gov.cn/zfxxgksfjdsgs/406172.jhtml": {
+      "title": "行政许可决定书（云司鉴许决字〔2026〕890号） [2026-07-15]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "d2ae6167fe53e88e"
+    },
+    "http://sft.yn.gov.cn/zfxxgksfjdsgs/406173.jhtml": {
+      "title": "行政许可决定书（云司鉴许决字〔2026〕889号） [2026-07-15]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "3d58c5e58af3bdc6"
+    },
+    "http://sft.yn.gov.cn/zfxxgksfjdsgs/406070.jhtml": {
+      "title": "行政许可决定书（云司鉴许决字〔2026〕889号） [2026-07-15]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "a5ebb9fd84c3ef3c"
+    },
+    "http://sft.yn.gov.cn/zfxxgksfjdsgs/405984.jhtml": {
+      "title": "行政许可决定书（云司鉴许决字〔2026〕888号） [2026-06-30]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "84d37f8d79d263c4"
+    },
+    "http://sft.yn.gov.cn/zfxxgksfjdsgs/405985.jhtml": {
+      "title": "行政许可决定书（云司鉴许决字〔2026〕887号） [2026-06-30]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "a05ab7986492a4ab"
+    },
+    "http://sft.yn.gov.cn/zfxxgksfjdsgs/405986.jhtml": {
+      "title": "行政许可决定书（云司鉴许决字〔2026〕886号） [2026-06-30]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "df81446d4420377e"
+    },
+    "http://sft.yn.gov.cn/zfxxgksfjdsgs/405987.jhtml": {
+      "title": "行政许可决定书（云司鉴许决字〔2026〕885号） [2026-06-30]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "26b630e47656a13d"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/405558.jhtml": {
+      "title": "孔俊律师行政处罚决定书云司罚决字〔2026〕5号 [2026-06-11]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "7e8641276560971d"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/405554.jhtml": {
+      "title": "周飞律师行政处罚决定书云司罚决字 〔2026〕第7号 [2026-06-11]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "860f46a2a5c6dcee"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/405555.jhtml": {
+      "title": "杨斌律师行政处罚决定书云司罚决字 〔2026〕第6号 [2026-06-11]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "585e3484563cda88"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/405556.jhtml": {
+      "title": "任然律师行政处罚决定书云司罚决字 〔2026〕第8号 [2026-06-11]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "a541d0db2fd8f7ad"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/405557.jhtml": {
+      "title": "毕云律师行政处罚决定书云司罚决字 〔2026〕第4号 [2026-06-11]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "6a2bf8fc4a902c69"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/404387.jhtml": {
+      "title": "刘镇宇律师行政处罚决定书云司罚决字〔2026〕第2号 [2026-04-02]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "a1da5594efc26649"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/403986.jhtml": {
+      "title": "夏健铖律师行政处罚决定书云司罚决字〔2026〕第3号 [2026-03-25]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "573bc96ea4b9a66e"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/403987.jhtml": {
+      "title": "樊峻岩律师行政处罚决定书云司罚决字〔2026〕第1号 [2026-03-25]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "2e51bda81ab1ce35"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/399561.jhtml": {
+      "title": "金卫国律师行政处罚决定书云司罚决字〔2025〕7号 [2025-11-28]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "69088f827fe19333"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/399562.jhtml": {
+      "title": "郭咏律师行政处罚决定书云司罚决字〔2025〕9号 [2025-11-28]",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "c7c12a0502dae879"
+    },
+    "http://sft.yn.gov.cn/xxgkzd/99345.jhtml": {
+      "title": "《中华人民共和国政府信息公开条例》（国令第711号）",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "6735c2d4b1e38e4e"
+    },
+    "http://sft.yn.gov.cn/xxgkzd/99417.jhtml": {
+      "title": "云南省人民政府办公厅关于印发云南省政务新媒体管理办法的通...",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "c6bf7cc6ce019c7b"
+    },
+    "http://sft.yn.gov.cn/fzdyydc/index.jhtml": {
+      "title": "法治调研与督察（政策研究）",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "069de5465ccaf2fd"
+    },
+    "http://sft.yn.gov.cn/zfxxgksfjdsgs/405988.jhtml": {
+      "title": "行政许可决定书（云司鉴许决字〔2026〕884号）",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "751b2bf5f90294f1"
+    },
+    "http://sft.yn.gov.cn/zfxxgksfjdsgs/405989.jhtml": {
+      "title": "行政许可决定书（云司鉴许决字〔2026〕883号）",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "50e69f42555de7e0"
+    },
+    "http://sft.yn.gov.cn/zfxxgksfjdsgs/405990.jhtml": {
+      "title": "行政许可决定书（云司鉴许决字〔2026〕882号）",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "d2dee55ec7884e26"
+    },
+    "http://sft.yn.gov.cn/zfxxgksfjdsgs/405991.jhtml": {
+      "title": "行政许可决定书（云司鉴许决字〔2026〕881号）",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "4e7a2d2ca6cfd6e5"
+    },
+    "http://sft.yn.gov.cn/zfxxgksfjdsgs/405992.jhtml": {
+      "title": "行政许可决定书（云司鉴许决字〔2026〕880号）",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "6c52c3a6420714ac"
+    },
+    "http://sft.yn.gov.cn/zfxxgksfjdsgs/405993.jhtml": {
+      "title": "行政许可决定书（云司鉴许决字〔2026〕879号）",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "2e257556daf36c85"
+    },
+    "http://sft.yn.gov.cn/zfxxgksfjdsgs/405994.jhtml": {
+      "title": "行政许可决定书（云司鉴许决字〔2026〕878号）",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "4117d7d8ebd743cc"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/399559.jhtml": {
+      "title": "徐立赐律师行政处罚决定书云司罚决字〔2025〕10号",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "fc64f4f02f904c3d"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/399560.jhtml": {
+      "title": "杨萌律师行政处罚决定书云司罚决字〔2025〕8号",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "8496f554daf2aba9"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/397948.jhtml": {
+      "title": "张冬生律师行政处罚决定书云司罚决字〔2025〕6号",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "c0af0f1f9b16200d"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/397949.jhtml": {
+      "title": "程荣兴律师行政处罚决定书云司罚决字【2025】5号",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "b8bc1e2dc0cbdaa1"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/397326.jhtml": {
+      "title": "资殿柱律师行政处罚决定书云司罚决字〔2025〕4号",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "da19e5f579e145cb"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/395683.jhtml": {
+      "title": "张云平律师行政处罚决定书云司罚决字〔2025〕3号",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "4ee9b3a73b549b73"
+    },
+    "http://sft.yn.gov.cn/xzcfgs/393584.jhtml": {
+      "title": "张燕妮律师行政处罚决定书云司罚决字〔2025〕1号",
+      "province": "云南省",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "dc5a20072359577c"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zzqrmzfwj/": {
+      "title": "自治区人民政府文件",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "497582e06545e54e"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/": {
+      "title": "行政规范性文件",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "5188834478269748"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/": {
+      "title": "行政执法信息公示",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "1278d2ca70fbd597"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/sqxzjcgs/": {
+      "title": "涉企行政检查公示",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "55a9aa8e2ac7f313"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202608/t20260812_5310890.html": {
+      "title": "关于确认杨超等6人担任公职律师、公司律师的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "4e6907a280255f18"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202608/t20260812_5310878.html": {
+      "title": "关于注销刘蕊等19人证件的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "391f4cc41cb6cecc"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202608/t20260812_5310871.html": {
+      "title": "关于许可张鹏茹等9人律师执业的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "af012ca25afacc0d"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202608/t20260812_5310866.html": {
+      "title": "关于核准设立宁夏塞川律师事务所的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "126d5d5c8127fdc3"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202608/t20260812_5310862.html": {
+      "title": "关于核准设立广东广悦（银川）律师事务所的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "f86c02ce65a7ea8f"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202608/t20260812_5310845.html": {
+      "title": "关于核准设立宁夏建誉律师事务所的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "a4ef10542584fb8a"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202608/t20260812_5310833.html": {
+      "title": "关于注销刘世宏等6人证件的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "98d25bf447ec4dff"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202608/t20260812_5310824.html": {
+      "title": "关于许可王德等5人律师执业的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "2cb4d53e9121331d"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202608/t20260812_5310820.html": {
+      "title": "关于许可陆政等8人律师执业的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "37b2067df91095d9"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202608/t20260812_5310817.html": {
+      "title": "关于注销于洋洋等11人证件的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "992ad04117dcabb4"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202608/t20260812_5310811.html": {
+      "title": "关于注销孙一文等7人证件的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "27c88c0920176990"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202607/t20260720_5293488.html": {
+      "title": "关于许可邵彦斌等30人律师执业的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "634ebb8a544ad8c5"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202607/t20260713_5288255.html": {
+      "title": "关于许可杨爽等75人律师执业的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "ff15e559d19550ce"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202607/t20260713_5288248.html": {
+      "title": "关于确认曹秋燕等5人担任公职律师、公司律师的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "0a91aa09b5d77f37"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202607/t20260713_5288239.html": {
+      "title": "关于注销娄晓艳等7人证件的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "6fd977f09706c505"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202607/t20260713_5288233.html": {
+      "title": "关于注销伍云泽等7人证件的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "59d6a011d4a920c9"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202607/t20260713_5288230.html": {
+      "title": "关于确认强丽娟等3人担任公职律师的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "99fea335b631ab41"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202606/t20260626_5274773.html": {
+      "title": "关于注销陆融慧等6人证件的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "630156c5eae24e0a"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202606/t20260622_5271097.html": {
+      "title": "关于宁夏凯信特信息科技有限公司的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "e3a8dcc30b49fa91"
+    },
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/202606/t20260615_5265848.html": {
+      "title": "关于确认王晓娟等4人担任公职律师、公司律师的行政审批决定书",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "832d777e3b2f5ff4"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202405/t20240502_4528233.html": {
+      "title": "关于印发《关于开展“法援惠民生”系列专项活动实施方案》的通知",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "39c778f3efcbf75f"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202404/t20240417_4513432.html": {
+      "title": "关于印发《宁夏回族自治区人民调解员以案定补管理办法》的通知",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "cdc27bd097c8b2b8"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202312/t20231207_4375259.html": {
+      "title": "自治区党委全面依法治区委员会守法普法协调小组关于公布自治区“八五”普法成果的通知",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "27883151e74660b4"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202312/t20231207_4375213.html": {
+      "title": "自治区司法厅关于认真贯彻落实《自治区提升行政执法质量三年行动实施方案 （2023—2025年）》的通知",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "75bc71ac9d832aec"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202311/t20231129_4367621.html": {
+      "title": "自治区党委全面依法治区委员会守法普法协调小组关于组织开展2023年“12·4”国家宪法日暨“宪法宣传周”宣传活动的通知",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "8131cb73fc826d78"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202312/t20231201_4370422.html": {
+      "title": "关于印发《宁夏社区矫正对象分级管理和分类教育办法》的通知",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "a9624c4cc1b2692d"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202310/t20231026_4325886.html": {
+      "title": "自治区司法厅关于开展生态环境保护规章行政规范性文件专项清理工作的通知",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "abf2ce7a93e02c72"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202311/t20231115_4351840.html": {
+      "title": "关于印发《关于规范全区暂予监外执行社区矫正对象病情诊断妊娠检查和生活不能自理鉴别工作的意见》的通知",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "5e06f0cfb4e16425"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202307/t20230727_4197386.html": {
+      "title": "关于印发《宁夏回族自治区人民陪审员换届选任工作方案》的通知",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "c3fa920a793063d2"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202306/t20230605_4132758.html": {
+      "title": "关于印发《关于进一步加强社会力量参与社区矫正工作的意见》的通知",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "dd7ea7ceaa85e388"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202302/t20230217_3964136.html": {
+      "title": "关于调整完善法律援助、公证、司法鉴定仲裁法律服务机构随机抽查事项清单和检查对象名录库执法检查人员名录库的通知",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "a9a55ef78c309c90"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202302/t20230217_3964037.html": {
+      "title": "自治区司法厅关于命名银川市兴庆区掌政司法所等73个司法所为“标准化司法所”的决定",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "1a704f9dd87d76b1"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202302/t20230217_3964079.html": {
+      "title": "宁夏回族自治区司法厅关于停止使用原《宁夏回族自治区行政执法证》的公告",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "f9b94bb0c633c914"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202303/t20230317_3999604.html": {
+      "title": "关于印发《宁夏回族自治区法律援助案件质量评定及补贴管理办法》的通知",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "212bed0545488294"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202209/t20220913_3762664.html": {
+      "title": "关于同意变更宁夏公证协会法定代表人的批复",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "ba14fa30c8bb6a50"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202209/t20220909_3757311.html": {
+      "title": "宁夏回族自治区司法厅关于撤销准予叶青律师执业许可的决定",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "76fab0b05fbf2baa"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202208/t20220818_3678026.html": {
+      "title": "关于对宁夏中小企业协会人民调解委员会备案登记的复函",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "71cedcd15831074e"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/202207/t20220707_3602552.html": {
+      "title": "自治区司法厅 教育厅关于印发《宁夏法律职业资格考试基地管理办法（试行）》的通知",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "f3fc0a4b877bdd52"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202607/t20260702_5280486.html": {
+      "title": "2026年5月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "7df6c26f732ec59b"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202607/t20260702_5280484.html": {
+      "title": "2026年4月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "f3ce952ed986f9d1"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202604/t20260423_5224009.html": {
+      "title": "2026年3月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "9556f721c3e775b1"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202602/t20260228_5181645.html": {
+      "title": "2025年12月 2026年1-2月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "157fb751ae482682"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202512/t20251216_5109750.html": {
+      "title": "2025年11月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "c61031c7e1c1da46"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202511/t20251104_5074341.html": {
+      "title": "2025年10月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "ff2029e5e4745a4b"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202510/t20251009_5047837.html": {
+      "title": "2025年9月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "76b934bd81564087"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202509/t20250909_5015978.html": {
+      "title": "2025年6-8月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "4ad05a7e7b2ea630"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202506/t20250611_4930676.html": {
+      "title": "2025年5月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "ae232572c1409081"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202505/t20250514_4907233.html": {
+      "title": "2025年4月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "c7d805e0ee009be8"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202504/t20250407_4874432.html": {
+      "title": "2025年1-3月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "0a4e20ffbbfc7b0a"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202501/t20250106_4781828.html": {
+      "title": "2024年9-12月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "e379f12346e7dd44"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202409/t20240914_4659501.html": {
+      "title": "2024年8月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "22905d687989a5f2"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202409/t20240914_4659496.html": {
+      "title": "2024年7月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "ed4f8d4dfe7644c9"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202407/t20240722_4601761.html": {
+      "title": "2024年6月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "d9f63f584856eef3"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202406/t20240612_4566147.html": {
+      "title": "2024年5月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "47f61f5eae41197a"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202405/t20240524_4548547.html": {
+      "title": "2024年4月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "fa0c96a202820e32"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202404/t20240402_4503020.html": {
+      "title": "2024年3月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "a17cd24d5a466b8c"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202404/t20240402_4503015.html": {
+      "title": "2024年2月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "402e08b60a6ed4b6"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/202404/t20240402_4503009.html": {
+      "title": "2024年1月备案情况统计表",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "23f2e84f2e791814"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcjd/202409/t20240914_4660513.html": {
+      "title": "《宁夏回族自治区人民调解员以案定补管理办法》图解",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "bef827382d295357"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcjd/202312/t20231222_4393795.html": {
+      "title": "《宁夏司法行政机关行政处罚裁量权基准》及其适用规则的政策解读",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "f08b928cb5fa03d7"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcjd/202312/t20231201_4370445.html": {
+      "title": "宁夏社区矫正对象分级管理和分类教育政策解读",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "c2f5adf518cbfca9"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcjd/202311/t20231115_4351859.html": {
+      "title": "“政策公开讲”之规范全区暂予监外执行罪犯社区矫正的政策解读",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "a28436c11e2c87a8"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcjd/202306/t20230605_4132799.html": {
+      "title": "《​关于进一步加强社会力量参与社区矫正工作的意见》图解",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "b134396516de7754"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcjd/202303/t20230302_3982138.html": {
+      "title": "宁夏回族自治区人民监督员选任管理办法、履职经费管理办法图解",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "647684cfb1698b09"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcjd/202303/t20230317_3999916.html": {
+      "title": "《宁夏回族自治区法律援助案件质量评定及补贴管理办法》图解",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "0b68ec65a34cf3d0"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcjd/202212/t20221212_3884646.html": {
+      "title": "关于《宁夏法律职业资格考试基地管理办法（试行）》政策解读",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "c37e24355a04a69b"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcjd/202207/t20220706_3601285.html": {
+      "title": "关于《关于法律援助经济困难状况个人诚信承诺制实施意见》的文字解读",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "91351efe0f0c5821"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcjd/202207/t20220714_3609498.html": {
+      "title": "《关于法律援助经济困难状况个人诚信承诺制实施意见》的动画解读",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "937fa02e99e64644"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcjd/202204/t20220427_3472270.html": {
+      "title": "关于《深化公证体制机制改革促进公证事业健康发展的实施意见》的解读",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "3949967190847649"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcjd/202201/t20220129_3312536.html": {
+      "title": "关于《行政裁决与调解、仲裁、行政复议、诉讼工作相衔接的若干规定》的解读",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "c45b2533771e4391"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcjd/202112/t20211217_3233305.html": {
+      "title": "《关于加强社会主义法治文化建设的实施意见》的解读",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "e55c7804437a3d7c"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcjd/202111/t20211119_3141152.html": {
+      "title": "《自治区司法厅关于深化全区“法律明白人”培育工程的意见》图解",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "53da7151db9523a3"
+    },
+    "https://sft.nx.gov.cn/xxgk/wjzx/zcjd/202112/t20211217_3230560.html": {
+      "title": "关于深化全区“法律明白人”培育工程的意见",
+      "province": "宁夏回族自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "f324b2bc0f8ef151"
+    },
+    "https://sft.xinjiang.gov.cn/xjsft/xxgkzn/information_jump.shtml": {
+      "title": "æ¿åºä¿¡æ¯å ¬å¼æå",
+      "province": "新疆维吾尔自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "1243169b5495939d"
+    },
+    "https://sft.xinjiang.gov.cn/xjsft/zfxxgkzd/information_list.shtml": {
+      "title": "æ¿åºä¿¡æ¯å ¬å¼å¶åº¦",
+      "province": "新疆维吾尔自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "cdb3cd7be76937e0"
+    },
+    "https://sft.xinjiang.gov.cn/xjsft/zfgknb/information_list.shtml": {
+      "title": "æ¿åºä¿¡æ¯å ¬å¼å¹´æ¥",
+      "province": "新疆维吾尔自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "95459dde2a9c7b8c"
+    },
+    "https://sft.xinjiang.gov.cn/xjsft/tzgg/information_list.shtml": {
+      "title": "éç¥å ¬å",
+      "province": "新疆维吾尔自治区",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "bcd4df4c65ee7ab4"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/2024zcwj/qtxgzcwj/index.html": {
+      "title": "其他相关政策文件",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "1c7a0c3771c1a7ee"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082814002040807.pdf": {
+      "title": "北京市司法局关于准予李涛变更执业机构的决定京司审〔2026〕11869号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "83d52d681cf44a1d"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082814002399909.pdf": {
+      "title": "北京市司法局关于准予马志明变更执业机构的决定京司审〔2026〕11868号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "e19d722b6eab66d0"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082814003015206.pdf": {
+      "title": "北京市司法局关于准予田英治变更执业机构的决定京司审〔2026〕11867号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "1bd2f810451c8f25"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082814003627776.pdf": {
+      "title": "北京市司法局关于准予刘福庆变更执业机构的决定京司审〔2026〕11866号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "ad40b605e8cc0e4f"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082813032574231.pdf": {
+      "title": "北京市司法局关于准予张鲁鹏变更执业机构的决定京司审〔2026〕11865号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "79b9b5aef9a5ce37"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082813033199306.pdf": {
+      "title": "北京市司法局关于准予夏晓阳变更执业机构的决定京司审〔2026〕11864号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "55da8859aff74ad7"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082813033719724.pdf": {
+      "title": "北京市司法局关于准予白洪平变更执业机构的决定京司审〔2026〕11863号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "f6e68ab1fa2c612c"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082813034320551.pdf": {
+      "title": "北京市司法局关于准予朱鹏远变更执业机构的决定京司审〔2026〕11862号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "905a86a17df661fe"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082813034947757.pdf": {
+      "title": "北京市司法局关于准予赵亚夕变更执业机构的决定京司审〔2026〕11861号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "af01ffca8da8fd09"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082813035683696.pdf": {
+      "title": "北京市司法局关于准予许海涛变更执业机构的决定京司审〔2026〕11860号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "185ab8ee3f3b37b7"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082812004583160.pdf": {
+      "title": "北京市司法局关于同意公证员张浩变更执业机构的决定京司审〔2026〕11854号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "d869e87f71e438aa"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082517002180203.pdf": {
+      "title": "北京市司法局关于同意公证员邵云龙变更执业机构的决定京司审〔2026〕11710号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "58a337b672e08357"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082417002469624.pdf": {
+      "title": "北京市司法局关于同意公证员王飞宇变更执业机构的决定京司审〔2026〕11689号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "8930bc3589edd10c"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/06/2026061711020624750.pdf": {
+      "title": "北京市司法局关于同意公证员李青变更执业机构的决定京司审〔2026〕7687号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "30769ac862a9d953"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/01/2026011511015358706.pdf": {
+      "title": "北京市司法局关于同意公证员李嘉健变更执业机构的决定京司审〔2026〕720号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "72de104d81ace3c8"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/01/2026011215004178234.pdf": {
+      "title": "北京市司法局关于同意公证员郭梦达变更执业机构的决定京司审〔2026〕573号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "0c3c9171754a724e"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2025/12/2025120810021236399.pdf": {
+      "title": "北京市司法局关于同意公证员刘璟遥变更执业机构的决定京司审〔2025〕16514号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "a75746112f7bd64b"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2025/11/2025112518003035202.pdf": {
+      "title": "北京市司法局关于同意公证员解庆利变更执业机构的决定京司审〔2025〕16103号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "a8b1f2beb0041e3d"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2025/07/2025072417001893955.pdf": {
+      "title": "北京市司法局关于同意公证员孙建荣变更执业机构的决定京司审〔2025〕10072号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "ab31e7e01ff60dea"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2025/03/2025032717011827512.pdf": {
+      "title": "北京市司法局关于同意公证员贾晓琳变更执业机构的决定京司审〔2025〕3918号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "3be0dae4a44629c9"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082712013883794.pdf": {
+      "title": "北京市司法局准予变更行政许可决定书京司审〔2026〕11785号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "f0438915240beff3"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082709002867972.pdf": {
+      "title": "北京市司法局准予变更行政许可决定书京司审〔2026〕11761号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "23dbb21064e3ba59"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082709003457685.pdf": {
+      "title": "北京市司法局准予变更行政许可决定书京司审〔2026〕11760号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "2daaa5b87e26ee87"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082412013954735.pdf": {
+      "title": "北京市司法局准予变更行政许可决定书京司审〔2026〕11649号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "7dea4947414128ed"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082412014625475.pdf": {
+      "title": "北京市司法局准予变更行政许可决定书京司审〔2026〕11648号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "838ee025678931c3"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082114021617424.pdf": {
+      "title": "北京市司法局准予变更行政许可决定书京司审〔2026〕11524号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "51742f6dbf2fb760"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082114022239391.pdf": {
+      "title": "北京市司法局准予行政许可决定书京司审〔2026〕11523号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "0d7bceb952a20420"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082114022774665.pdf": {
+      "title": "北京市司法局准予延续行政许可决定书京司审〔2026〕11522号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "d4dbc9f2b343d753"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082114023345463.pdf": {
+      "title": "北京市司法局准予行政许可决定书京司审〔2026〕11521号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "1ad0ce950ac72687"
+    },
+    "https://sfj.beijing.gov.cn/sfj/resource/cms/2026/08/2026082114023989108.pdf": {
+      "title": "北京市司法局准予延续行政许可决定书京司审〔2026〕11520号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "673462121a71bd44"
+    },
+    "https://sfj.beijing.gov.cn/sfj/sfdt/ztzl74/bjssfjxzxkhxzcfxxgszl50/xzxk31/1725793/1718296/index.html": {
+      "title": "北京市司法局不予颁发法律职业资格证书决定书",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "7b85784f03d623da"
+    },
+    "https://sfj.beijing.gov.cn/sfj/sfdt/ztzl74/bjssfjxzxkhxzcfxxgszl50/xzcf84/cfb/744103799/index.html": {
+      "title": "北京市司法局行政处罚决定书 京司罚决〔2026〕8号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "e8587d264bb8d8ee"
+    },
+    "https://sfj.beijing.gov.cn/sfj/sfdt/ztzl74/bjssfjxzxkhxzcfxxgszl50/xzcf84/cfb/744067014/index.html": {
+      "title": "北京市司法局行政处罚决定书-京司罚决〔2026〕6号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "87858295c1937ac2"
+    },
+    "https://sfj.beijing.gov.cn/sfj/sfdt/ztzl74/bjssfjxzxkhxzcfxxgszl50/xzcf84/cfb/744036595/index.html": {
+      "title": "北京市司法局行政处罚决定书-京司罚决〔2026〕4号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "1c11ea9ec5b476a8"
+    },
+    "https://sfj.beijing.gov.cn/sfj/sfdt/ztzl74/bjssfjxzxkhxzcfxxgszl50/xzcf84/cfb/743970676/index.html": {
+      "title": "北京市司法局行政处罚决定书-京司罚决〔2026〕3号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "b9818b11160d82ac"
+    },
+    "https://sfj.beijing.gov.cn/sfj/sfdt/ztzl74/bjssfjxzxkhxzcfxxgszl50/xzcf84/cfb/743891088/index.html": {
+      "title": "北京市司法局行政处罚决定书-京司罚决〔2025〕13号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "e4f3e710bea8135b"
+    },
+    "https://sfj.beijing.gov.cn/sfj/sfdt/ztzl74/bjssfjxzxkhxzcfxxgszl50/xzcf84/cfb/743776802/index.html": {
+      "title": "北京市司法局行政处罚决定书-京司罚决〔2025〕14号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "f1260962018dfe5f"
+    },
+    "https://sfj.beijing.gov.cn/sfj/sfdt/ztzl74/bjssfjxzxkhxzcfxxgszl50/xzcf84/cfb/743752390/index.html": {
+      "title": "北京市司法局行政处罚决定书-京司罚决〔2025〕12号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "729ae11379e7a271"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/tzgg75/index.html": {
+      "title": "| 通知公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "d9166fdedb6a8086"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/rsdt36/index.html": {
+      "title": "| 人事公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "fe49278c780230cf"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/cxjl79/744103799/index.html": {
+      "title": "北京市司法局行政处罚决定书 京司罚决〔2026〕8号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "39804ab03dafc562"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/cxjl79/744067014/index.html": {
+      "title": "北京市司法局行政处罚决定书-京司罚决〔2026〕6号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "c3ecb7c2e5d5f1e1"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/cxjl79/744036595/index.html": {
+      "title": "北京市司法局行政处罚决定书-京司罚决〔2026〕4号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "c5faf16af2c1e5cd"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/cxjl79/743970676/index.html": {
+      "title": "北京市司法局行政处罚决定书-京司罚决〔2026〕3号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "d9b2f9060d4a56f2"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/cxjl79/743891088/index.html": {
+      "title": "北京市司法局行政处罚决定书-京司罚决〔2025〕13号",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "018136b86cd6ef65"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/cxjl79/743882233/index.html": {
+      "title": "国家统一法律职业资格考试违纪行为处理决定书-京司违处决字〔2025〕2...",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "fab281981fa462aa"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/rsdt36/744047440/index.html": {
+      "title": "北京市司法局所属事业单位2026年公开招聘和退役大学生士兵定向招聘成...",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "b99370031571175e"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/rsdt36/744015345/index.html": {
+      "title": "北京市司法局所属事业单位2026年公开招聘工作人员笔试成绩公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "8da059e204829a03"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/rsdt36/743976342/index.html": {
+      "title": "北京市司法局关于2026年考试录用公务员拟录用人员公示公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "fe70cc7fe510c1b3"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/rsdt36/743946870/index.html": {
+      "title": "北京市司法局所属事业单位2026年公开招聘工作人员公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "dd0f53fc226e175c"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/rsdt36/743906847/index.html": {
+      "title": "北京市司法局2026年度考试录用公务员面试公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "4259d7fb9ee199ce"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/rsdt36/743886680/index.html": {
+      "title": "北京市司法局2026年度“优培计划”招聘应届优秀大学毕业生拟录用人员...",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "29ee1dc45fe217be"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/2024zcwj/744009797/index.html": {
+      "title": "北京市人民政府办公厅关于印发《市政府2026年立法工作计划》的通知",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "d1a88aa18ec2ac56"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/2024zcwj/744009071/index.html": {
+      "title": "北京市司法局关于废止文件的通知",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "5b44c45736d82f4b"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/2024zcwj/743895133/index.html": {
+      "title": "北京市司法局关于印发《北京市司法鉴定业务档案管理办法》的通知",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "938fb4b010aa9a35"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/2024zcwj/743877017/index.html": {
+      "title": "北京市司法局关于废止京司发〔2007〕24号等4个文件的通知",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "83d4a14894b5d41b"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/2024zcjd/743895117/index.html": {
+      "title": "关于《北京市司法鉴定业务档案管理办法》的政策解读",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "99e80d763d2487f5"
+    },
+    "https://sfj.beijing.gov.cn/sfj/sfdt/fzxc74/744105624/index.html": {
+      "title": "《信访工作条例》普法小课堂（十）：申诉求决类事项之六——不属于以...",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "3b13b71ffb89d2ee"
+    },
+    "https://sfj.beijing.gov.cn/sfj/sfdt/fzxc74/744105385/index.html": {
+      "title": "《信访工作条例》普法小课堂（九）：申诉求决类事项之五（下）——依...",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "3ad03a0513e096be"
+    },
+    "https://sfj.beijing.gov.cn/sfj/sfdt/fzxc74/744105375/index.html": {
+      "title": "《信访工作条例》普法小课堂（八）：申诉求决类事项之五（上）——依...",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "1c1b0ae26385fcd9"
+    },
+    "https://sfj.beijing.gov.cn/sfj/sfdt/fzxc74/744105324/index.html": {
+      "title": "《信访工作条例》普法小课堂（七）：申诉求决类事项之四——法定行政...",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "bacc0b8ece8ccff9"
+    },
+    "https://sfj.beijing.gov.cn/sfj/sfdt/fzxc74/744054945/index.html": {
+      "title": "《信访工作条例》普法小课堂（六）：申诉求决类事项之三——党员申诉...",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "d1acfa9b40a15695"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/ghjh84/744049016/index.html": {
+      "title": "北京市司法局2026年市政府工作报告重点任务二季度进展情况",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "daa467f90a03b617"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/ghjh84/743965242/index.html": {
+      "title": "北京市司法局2026年市政府工作报告重点任务一季度进展情况",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "37138fd197571286"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/ghjh84/743963028/index.html": {
+      "title": "北京市2025年法治政府建设情况报告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "0dca690dc24e72a6"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/ghjh84/743895971/index.html": {
+      "title": "北京市司法局2025年市政府工作报告重点任务四季度进展情况",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "b545e72d91b9ba5a"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/ghjh84/743832796/index.html": {
+      "title": "北京市司法局2025年办理市人大代表建议和市政协委员提案的答复意见",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "ac7facccfc6eb5f2"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/ghjh84/743780063/index.html": {
+      "title": "北京市司法局2025年市政府工作报告重点任务三季度进展情况",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "06635ab0cd56b61d"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/ghjh84/743685970/index.html": {
+      "title": "北京市司法局2025年市政府工作报告重点任务二季度进展情况",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "85e218f60a2f6c97"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/ghjh84/743578175/index.html": {
+      "title": "北京市司法局2025年市政府工作报告重点任务一季度进展情况",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "4ef92f4b2c87f0ad"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/ghjh84/743577148/index.html": {
+      "title": "北京市2024年法治政府建设年度情况报告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "32607b916f7d8909"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/ghjh84/743577854/index.html": {
+      "title": "北京市司法局2024年法治政府建设年度情况报告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "fc6ff9b05308d44c"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/ghjh84/543498814/index.html": {
+      "title": "北京市司法局2024年市政府工作报告重点任务四季度进展情况",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "a4c28d027293ebab"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/ghjh84/543428609/index.html": {
+      "title": "北京市司法局2024年市政府工作报告重点任务三季度进展情况",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "8c31f96c8bf8de76"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/ghjh84/543421684/index.html": {
+      "title": "北京市司法局2024年办理市人大代表建议和市政协委员提案的答复意见",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "7ae628809f2b31f4"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/tzgg75/744106215/index.html": {
+      "title": "关于向申请人申涛送达京政复监字〔2026〕153号《行政复议监督告知书》的公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "80f06e3b87b8d4a8"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/tzgg75/744105611/index.html": {
+      "title": "关于向申请人代军送达京政复字〔2026〕2980号《北京市人民政府行政复议决定书》的公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "62c2bbeae5a02388"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/tzgg75/744105606/index.html": {
+      "title": "关于向申请人吴强送达京政复字〔2026〕3162号《北京市人民政府行政复议决定书》的公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "41fc6a73a135cf86"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/tzgg75/744105597/index.html": {
+      "title": "关于向申请人王伟光送达京政复字〔2026〕2966号《北京市人民政府行政复议决定书》的公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "5ce747711c992e8f"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/tzgg75/744105591/index.html": {
+      "title": "关于向申请人王伟光送达京政复字〔2026〕2965号《北京市人民政府行政复议决定书》的公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "ed03b22359bbcd9f"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/tzgg75/744105587/index.html": {
+      "title": "关于向申请人刘广路送达京政复字〔2026〕2381号《北京市人民政府行政复议决定书》的公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "63cfeceed70e8f59"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/tzgg75/744100831/index.html": {
+      "title": "关于选择2026年国家统一法律职业资格考试北京考区客观题考点的通知",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "458b9f331fe0dee1"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/tzgg75/744101991/index.html": {
+      "title": "关于向申请人柳景石送达京政复字〔2026〕2775号《北京市人民政府 行政复议决定书》的公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "1c7f9f59371b20b0"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/tzgg75/744099512/index.html": {
+      "title": "北京市司法局关于发放2026年应届毕业生法律职业资格证书的通知",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "f7edc8f385b7638b"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/tzgg75/744099050/index.html": {
+      "title": "关于向申请人肖华送达京政复字〔2026〕2302号《北京市人民政府驳回行政复议申请决定书》的公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "b42671a3ebf39950"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/tzgg75/744099046/index.html": {
+      "title": "关于向申请人张玉梅送达京府复补字〔2026〕19号《行政复议申请材料补正通知书》的公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "84c9c1ed336b4572"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/tzgg75/744098703/index.html": {
+      "title": "北京市司法局2026年法治文化带系列宣传活动项目成交结果公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "25ab0f1c67a1cde6"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/tzgg75/744098700/index.html": {
+      "title": "关于向申请人刘畅送达《行政复议申请材料补正通知书》（京政复补字〔2026〕993号）的公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "2b36f7c11df21b16"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/tzgg75/744092565/index.html": {
+      "title": "关于向申请人徐善朗送达京政复字〔2026〕1988号《行政复议决定书》的公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "0f8e00916e41dae1"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/tzgg75/744092558/index.html": {
+      "title": "关于向申请人徐善朗送达京政复字〔2026〕836号《行政复议决定书》的公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "bfc9840db4fa5d13"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/rsdt36/743866163/index.html": {
+      "title": "北京市司法局2026年度定向选调应届优秀大学毕业生拟录用人员公示公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "b0ac2217db2c9a35"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/rsdt36/743838194/index.html": {
+      "title": "北京市司法局2026年度“优培计划”面试公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "f5ca64f4812228fb"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/rsdt36/743773670/index.html": {
+      "title": "北京市方圆公证处2025年公开招聘拟聘人员（公证员岗）公示公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "fb9a730ed2e05225"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/rsdt36/743697475/index.html": {
+      "title": "北京市律师协会秘书处2025年公开招聘拟聘用人员公示公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "af8d571ae4b42d45"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/rsdt36/743697456/index.html": {
+      "title": "北京市长安公证处2025年公开招聘拟聘用人员公示公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "7f4f01bc558a20cc"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/rsdt36/743697445/index.html": {
+      "title": "北京市方圆公证处2025年公开招聘拟聘用人员(公证助理岗)公示公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "04e8ee6031b6231c"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/rsdt36/743660559/index.html": {
+      "title": "北京市律师协会秘书处2025年公开招聘工作人员综合成绩公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "031cd46583f5b577"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/rsdt36/743660562/index.html": {
+      "title": "北京市长安公证处2025年公开招聘工作人员综合成绩公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "503d414ea4510c1b"
+    },
+    "https://sfj.beijing.gov.cn/sfj/zwgk/rsdt36/743660569/index.html": {
+      "title": "北京市方圆公证处2025年公开招聘工作人员综合成绩公告",
+      "province": "北京市",
+      "first_seen": "2026-08-28T08:16:50.619321+00:00",
+      "last_seen": "2026-08-28T08:16:50.619321+00:00",
+      "fingerprint": "4ef664b609ee9e42"
+    }
+  },
+  "list_urls": {
+    "https://xzxk.sfj.sh.gov.cn/hall/doc-list.jsp": [
+      "https://xzxk.sfj.sh.gov.cn/hall/doc-detail.jsp?id=01a0425d397f7f9591ac829a0a5a8298",
+      "https://xzxk.sfj.sh.gov.cn/hall/doc-detail.jsp?id=01a04259a2537554a962c2c0909690a0",
+      "https://xzxk.sfj.sh.gov.cn/hall/doc-detail.jsp?id=01a046f29dc07971a17ddcb6914046ee",
+      "https://xzxk.sfj.sh.gov.cn/hall/doc-list.jsp",
+      "https://xzxk.sfj.sh.gov.cn/hall/doc-detail.jsp?id=01a0425c8fd378e98d8aef40195392d6",
+      "https://xzxk.sfj.sh.gov.cn/hall/doc-detail.jsp?id=01a046f33145736c9c93534ca3409376",
+      "https://xzxk.sfj.sh.gov.cn/hall/doc-detail.jsp?id=01a0425a07487fa88e8cba8709d5b85d",
+      "https://xzxk.sfj.sh.gov.cn/hall/doc-detail.jsp?id=01a0425ce74c7d7fbd0822c3f45b8944"
+    ],
+    "https://sft.hebei.gov.cn/xzzfgszl/shgk/index.shtml": [
+      "https://sft.hebei.gov.cn/xzzfgszl/shgk/index.shtml"
+    ],
+    "https://sft.shanxi.gov.cn/zwgk/fdzdgknr/xxqlyx/xzxk1/": [
+      "https://sft.shanxi.gov.cn/zwgk/fdzdgknr/xxqlyx/xzxk1/"
+    ],
+    "https://sft.ln.gov.cn/": [
+      "https://sft.ln.gov.cn/sft/zwgk/zc/xzgfxwj/index.shtml",
+      "https://sft.ln.gov.cn/sft/zwgk/zfxxgkzd/index.shtml",
+      "https://sft.ln.gov.cn/sft/zwgk/zfxxgkzd/zfxxgktl/index.shtml",
+      "https://sft.ln.gov.cn/sft/zwgk/zfxxgknb/index.shtml",
+      "https://sft.ln.gov.cn/sft/zwgk/zc/index.shtml",
+      "https://sft.ln.gov.cn/sft/zwgk/fdzdgknr/lzyj/index.shtml",
+      "https://sft.ln.gov.cn/sft/zwgk/zfxxgkzn/index.shtml"
+    ],
+    "https://zwfw.jl.gov.cn/jlszwfw/jggs/": [
+      "https://zwfw.jl.gov.cn/jlszwfw/jggs/",
+      "https://zwfw.jl.gov.cn/jlszwfw/lsjggs/"
+    ],
+    "https://sft.hlj.gov.cn/": [
+      "https://sft.hlj.gov.cn/sft/c112652/public_list.shtml",
+      "https://sft.hlj.gov.cn/sft/c103870/public_zmhd.shtml",
+      "https://sft.hlj.gov.cn/sft/jgld/public_jgld_new.shtml",
+      "https://sft.hlj.gov.cn/sft/c112853/public_list.shtml",
+      "https://sft.hlj.gov.cn/sft/zwgk/zwgk.shtml",
+      "https://sft.hlj.gov.cn/sft/c103878/public_olist_pic.shtml",
+      "http://sft.hlj.gov.cn/sft/909/public_list.shtml"
+    ],
+    "http://fz.sft.jiangsu.gov.cn:9000/Sky.WebHall/sftweb/xingquan_topublic_list_page.aspx": [
+      "http://fz.sft.jiangsu.gov.cn:9000/Sky.WebHall/sftweb/xingquan_topublic_list_page.aspx"
+    ],
+    "https://ls.sft.zj.gov.cn": [],
+    "https://ah.12348.gov.cn/credit/publicity": [
+      "https://ah.12348.gov.cn/credit/subjects?type=012",
+      "https://ah.12348.gov.cn/credit/publicity",
+      "https://ah.12348.gov.cn/credit/subjects?type=0304",
+      "https://ah.12348.gov.cn/credit",
+      "https://ah.12348.gov.cn/credit/credits",
+      "https://ah.12348.gov.cn/credit/subjects?type=0303",
+      "https://ah.12348.gov.cn/credit/subjects",
+      "https://ah.12348.gov.cn/credit/subjects?type=0302"
+    ],
+    "https://sft.fujian.gov.cn/zwgk/zfxxgkzl/zfxxgkml/": [
+      "https://sft.fujian.gov.cn/zwgk/gggs/",
+      "https://sft.fujian.gov.cn/zwgk/",
+      "https://sft.fujian.gov.cn/zwgk/zfxxgkzl/zfxxgkzn/",
+      "https://sft.fujian.gov.cn/zwgk/jcdt/",
+      "https://sft.fujian.gov.cn/zwgk/gkxx/",
+      "https://sft.fujian.gov.cn/zwgk/zfxxgkzl/zfxxgkml/",
+      "https://sft.fujian.gov.cn/zwgk/tpxw/",
+      "https://sft.fujian.gov.cn/zwgk/ywbd/"
+    ],
+    "https://sf.jiangxi.gov.cn/search5/html/searchResult.html?siteCode=3600000041&searchWord=%E5%BE%8B%E5%B8%88%E4%BA%8B%E5%8A%A1%E6%89%80%E8%AE%BE%E7%AB%8B": [],
+    "http://sft.shandong.gov.cn/channels/ch07775/": [],
+    "https://sft.henan.gov.cn/": [],
+    "https://sft.hubei.gov.cn/zfxxgk/fdzdgknr/xkfw/xzxkjg/djgxzxk/#test": [
+      "https://sft.hubei.gov.cn/zfxxgk/fdzdgknr/xkfw/xzxkjg/djgxzxk/#test",
+      "http://sft.hubei.gov.cn/zfxxgk/zc/zcjd/",
+      "http://sft.hubei.gov.cn/zfxxgk/fdzdgknr/",
+      "http://sft.hubei.gov.cn/zfxxgk/zc/gfxwj/",
+      "http://sft.hubei.gov.cn/zfxxgk/zfxxgkzn/",
+      "http://sft.hubei.gov.cn/zfxxgk/zc/qtzdgkwj/",
+      "http://sft.hubei.gov.cn/zfxxgk/zfxxgkzd/",
+      "http://sft.hubei.gov.cn/zfxxgk/zc/"
+    ],
+    "https://sft.hunan.gov.cn/sft/xxgk_71079/xyxxgs/index.html": [
+      "https://sft.hunan.gov.cn/sft/xxgk_71079/xyxxgs/index.html"
+    ],
+    "http://www.xzzfxxgs.gdsf.gov.cn/ApprLawPublicity/unit.html#/home?id=53b568f355b249589275be0993d02eb8&parentCodes=": [
+      "http://www.xzzfxxgs.gdsf.gov.cn/ApprLawPublicity/unit.html#/home?id=53b568f355b249589275be0993d02eb8&parentCodes="
+    ],
+    "https://hi.12348.gov.cn/#/publics/xyxx/xyxxList": [
+      "https://hi.12348.gov.cn/#/publics/xyxx/xyxxList"
+    ],
+    "http://zxbl.sczwfw.gov.cn/app/newAffairPublicity/publicityListMorePageDh?areaCode=510000000000": [
+      "http://zxbl.sczwfw.gov.cn/app/newAffairPublicity/publicityListMorePageDh?areaCode=510000000000"
+    ],
+    "https://sft.guizhou.gov.cn/zwgk_97/xxgkml/zdlyxx/xzxkcfsgs/xzxk_5740153/lsjlssws/index.html": [
+      "https://sft.guizhou.gov.cn/zwgk_97/xxgkml/zdlyxx/xzxkcfsgs/xzxk_5740153/lsjlssws/index.html"
+    ],
+    "https://sft.yn.gov.cn/sgs/index.jhtml": [
+      "http://sft.yn.gov.cn/xzxkgs/index.jhtml",
+      "http://sft.yn.gov.cn/jgsz/index.jhtml",
+      "http://sft.yn.gov.cn/sgsml/index.jhtml",
+      "http://sft.yn.gov.cn/xxgkzd/index.jhtml",
+      "http://sft.yn.gov.cn/xzcfgs/index.jhtml",
+      "https://sft.yn.gov.cn/sgs/index.jhtml",
+      "http://sft.yn.gov.cn/sgs/index.jhtml",
+      "http://sft.yn.gov.cn/xxgkzdgz/index.jhtml"
+    ],
+    "https://sft.shaanxi.gov.cn/zfxxgk/fdzdgknr/xzxk/": [
+      "https://sft.shaanxi.gov.cn/zfxxgk/fdzdgknr/xzxk/"
+    ],
+    "https://sft.gansu.gov.cn/sft/c113192/xxgklmlb.shtml": [
+      "https://sft.gansu.gov.cn/sft/c113192/xxgklmlb.shtml"
+    ],
+    "https://sft.qinghai.gov.cn/zwgk/fdzdgknr": [
+      "https://sft.qinghai.gov.cn/zwgk/fdzdgknr"
+    ],
+    "https://sft.nmg.gov.cn/adm/webpage/license/document/list": [],
+    "http://sft.gxzf.gov.cn/zwgk/xzsgs/xzxk/": [
+      "http://sft.gxzf.gov.cn/zwgk/xzsgs/xzxk/"
+    ],
+    "https://sft.xizang.gov.cn/xxgk/xzxk/": [
+      "https://sft.xizang.gov.cn/xxgk/xzxk/",
+      "https://sft.xizang.gov.cn/xxgk/zfxxgknb/",
+      "https://sft.xizang.gov.cn/xxgk/zfxxgkzn/",
+      "https://sft.xizang.gov.cn/xxgk/xzcf/",
+      "https://sft.xizang.gov.cn/xxgk/qlqd/",
+      "https://sft.xizang.gov.cn/xxgk/zfxxgkzd/",
+      "https://sft.xizang.gov.cn/xxgk/",
+      "https://sft.xizang.gov.cn/xxgk/ysqgkcx/"
+    ],
+    "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/": [
+      "https://sft.nx.gov.cn/xxgk/wjzx/zcwj/",
+      "https://sft.nx.gov.cn/xxgk/wjzx/sftwj/",
+      "https://sft.nx.gov.cn/xxgk/wjzx/zfgz/",
+      "https://sft.nx.gov.cn/xxgk/zfxxgkzn/",
+      "https://sft.nx.gov.cn/xxgk/wjzx/zzqrmzfwj/",
+      "https://sft.nx.gov.cn/xxgk/wjzx/gwywj/",
+      "https://sft.nx.gov.cn/xxgk/fdzdgknr/xzzfxxgs/",
+      "https://sft.nx.gov.cn/xxgk/wjzx/zcjd/"
+    ],
+    "https://sft.xinjiang.gov.cn/sgs/information_class.shtml": [
+      "https://sft.xinjiang.gov.cn/xjsft/xzxk/202608/307b455cf1b74b0db20ec0e419eed3e7.shtml",
+      "https://sft.xinjiang.gov.cn/xjsft/xzxk/202608/9b54a3781a864488b2d166782d543c4c.shtml",
+      "https://sft.xinjiang.gov.cn/xjsft/xzxk/202608/eef67639405a4789a3b8ef854ef7af33.shtml",
+      "https://sft.xinjiang.gov.cn/xjsft/zfxxgkzd/information_list.shtml",
+      "https://sft.xinjiang.gov.cn/xjsft/xzxk/202608/fbcfe27af0d34d8e9c443f1a04286881.shtml",
+      "https://sft.xinjiang.gov.cn/xjsft/xzxk/information_list.shtml",
+      "https://sft.xinjiang.gov.cn/sgs/information_class.shtml",
+      "https://sft.xinjiang.gov.cn/xjsft/xxgkzn/information_jump.shtml"
+    ],
+    "https://sfj.beijing.gov.cn/sfj/sfdt/ztzl74/bjssfjxzxkhxzcfxxgszl50/index.html": [
+      "https://sfj.beijing.gov.cn/sfj/zwgk/ghjh84/index.html",
+      "https://sfj.beijing.gov.cn/sfj/zwgk/cwgk48/ysgk67/index.html",
+      "https://sfj.beijing.gov.cn/sfj/zwgk/sfjjs93/index.html",
+      "https://sfj.beijing.gov.cn/sfj/zwgk/rsdt36/index.html",
+      "https://sfj.beijing.gov.cn/sfj/sfdt/ztzl74/bjssfjxzxkhxzcfxxgszl50/index.html",
+      "https://sfj.beijing.gov.cn/sfj/zwgk/ywsj28/jdsj/index.html",
+      "https://sfj.beijing.gov.cn/sfj/zwgk/index.html",
+      "https://sfj.beijing.gov.cn/sfj/zwgk/tzgg75/index.html"
+    ],
+    "https://sf.tj.gov.cn/ZWGK748/sfjzfxxgk/sfjfadzdgknr/sfjxzxkfwsx/": [
+      "https://sf.tj.gov.cn/ZWGK748/sfjzfxxgk/sfjfadzdgknr/sfjxzxkfwsx/"
+    ],
+    "https://sfj.cq.gov.cn/zwgk_243/zfxxgkml/fdgkxzxk/xzxkbljg/": [
+      "https://sfj.cq.gov.cn/zwgk_243/zfxxgkzd/",
+      "https://sfj.cq.gov.cn/zwgk_243/zfxxgkml/",
+      "https://sfj.cq.gov.cn/zwgk_243/zfxxgkzn/",
+      "https://sfj.cq.gov.cn/zwgk_243/zfxxgkml/sflzyj/sfjfl/",
+      "https://sfj.cq.gov.cn/zwgk_243/zfxxgkml/fdgkxzxk/",
+      "https://sfj.cq.gov.cn/zwgk_243/",
+      "https://sfj.cq.gov.cn/zwgk_243/zfxxgkml/sflzyj/",
+      "https://sfj.cq.gov.cn/zwgk_243/zfxxgkml/fdgkxzxk/xzxkbljg/"
+    ]
+  },
+  "errors": {
+    "https://sft.hebei.gov.cn/xzzfgszl/shgk/index.shtml": "HTTPSConnectionPool(host='sft.hebei.gov.cn', port=443): Max retries exceeded with url: /xzzfgszl/shgk/index.shtml (Caused by NameResolutionError(\"HTTPSConnection(host='sft.hebei.gov.cn', port=443): Failed to resolve 'sft.hebei.gov.cn' ([Errno -3] Temporary failure in name resolution)\"))",
+    "https://sft.shanxi.gov.cn/zwgk/fdzdgknr/xxqlyx/xzxk1/": "HTTPSConnectionPool(host='sft.shanxi.gov.cn', port=443): Max retries exceeded with url: /zwgk/fdzdgknr/xxqlyx/xzxk1/ (Caused by NewConnectionError(\"HTTPSConnection(host='sft.shanxi.gov.cn', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))",
+    "http://sft.hlj.gov.cn/sft/909/public_list.shtml": "HTTPConnectionPool(host='sft.hlj.gov.cn', port=80): Read timed out. (read timeout=10)",
+    "https://sf.jiangxi.gov.cn/search5/html/searchResult.html?siteCode=3600000041&searchWord=%E5%BE%8B%E5%B8%88%E4%BA%8B%E5%8A%A1%E6%89%80%E8%AE%BE%E7%AB%8B": "HTTPSConnectionPool(host='sf.jiangxi.gov.cn', port=443): Max retries exceeded with url: /search5/html/searchResult.html?siteCode=3600000041&searchWord=%E5%BE%8B%E5%B8%88%E4%BA%8B%E5%8A%A1%E6%89%80%E8%AE%BE%E7%AB%8B (Caused by NewConnectionError(\"HTTPSConnection(host='sf.jiangxi.gov.cn', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))",
+    "http://sft.shandong.gov.cn/channels/ch07775/": "HTTPConnectionPool(host='sft.shandong.gov.cn', port=80): Max retries exceeded with url: /channels/ch07775/ (Caused by NewConnectionError(\"HTTPConnection(host='sft.shandong.gov.cn', port=80): Failed to establish a new connection: [Errno 101] Network is unreachable\"))",
+    "https://sft.henan.gov.cn/": "HTTP 403",
+    "https://sft.hunan.gov.cn/sft/xxgk_71079/xyxxgs/index.html": "HTTPSConnectionPool(host='sft.hunan.gov.cn', port=443): Max retries exceeded with url: /sft/xxgk_71079/xyxxgs/index.html (Caused by SSLError(SSLError(1, '[SSL: BAD_ECPOINT] bad ecpoint (_ssl.c:1010)')))",
+    "https://hi.12348.gov.cn/#/publics/xyxx/xyxxList": "HTTPSConnectionPool(host='hi.12348.gov.cn', port=443): Max retries exceeded with url: / (Caused by NewConnectionError(\"HTTPSConnection(host='hi.12348.gov.cn', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))",
+    "http://zxbl.sczwfw.gov.cn/app/newAffairPublicity/publicityListMorePageDh?areaCode=510000000000": "HTTPConnectionPool(host='zxbl.sczwfw.gov.cn', port=80): Max retries exceeded with url: /app/newAffairPublicity/publicityListMorePageDh?areaCode=510000000000 (Caused by NewConnectionError(\"HTTPConnection(host='zxbl.sczwfw.gov.cn', port=80): Failed to establish a new connection: [Errno 101] Network is unreachable\"))",
+    "https://sft.guizhou.gov.cn/zwgk_97/xxgkml/zdlyxx/xzxkcfsgs/xzxk_5740153/lsjlssws/index.html": "HTTPSConnectionPool(host='sft.guizhou.gov.cn', port=443): Max retries exceeded with url: /zwgk_97/xxgkml/zdlyxx/xzxkcfsgs/xzxk_5740153/lsjlssws/index.html (Caused by NewConnectionError(\"HTTPSConnection(host='sft.guizhou.gov.cn', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))",
+    "https://sft.shaanxi.gov.cn/zfxxgk/fdzdgknr/xzxk/": "HTTPSConnectionPool(host='sft.shaanxi.gov.cn', port=443): Max retries exceeded with url: /zfxxgk/fdzdgknr/xzxk/ (Caused by NewConnectionError(\"HTTPSConnection(host='sft.shaanxi.gov.cn', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))",
+    "https://sft.gansu.gov.cn/sft/c113192/xxgklmlb.shtml": "HTTP 412",
+    "https://sft.qinghai.gov.cn/zwgk/fdzdgknr": "HTTP 405",
+    "https://sft.nmg.gov.cn/adm/webpage/license/document/list": "HTTP 403",
+    "http://sft.gxzf.gov.cn/zwgk/xzsgs/xzxk/": "HTTPConnectionPool(host='sft.gxzf.gov.cn', port=80): Max retries exceeded with url: /zwgk/xzsgs/xzxk/ (Caused by ConnectTimeoutError(<HTTPConnection(host='sft.gxzf.gov.cn', port=80) at 0x7fd17d4ee900>, 'Connection to sft.gxzf.gov.cn timed out. (connect timeout=10)'))",
+    "https://sft.xizang.gov.cn/xxgk/ysqgkcx/": "('Connection aborted.', ConnectionResetError(104, 'Connection reset by peer'))",
+    "https://sft.xizang.gov.cn/xxgk/xzcf/": "HTTPSConnectionPool(host='sft.xizang.gov.cn', port=443): Max retries exceeded with url: /xxgk/xzcf/ (Caused by NewConnectionError(\"HTTPSConnection(host='sft.xizang.gov.cn', port=443): Failed to establish a new connection: [Errno 101] Network is unreachable\"))",
+    "https://sf.tj.gov.cn/ZWGK748/sfjzfxxgk/sfjfadzdgknr/sfjxzxkfwsx/": "HTTP 403"
+  },
+  "baselined": true
 }
