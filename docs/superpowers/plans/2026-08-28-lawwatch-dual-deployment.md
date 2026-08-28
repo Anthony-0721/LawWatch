@@ -277,7 +277,7 @@ $ErrorActionPreference = "Stop"
 $root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $out = Join-Path $root "dist\LawWatchMonitor"
 $pythonExe = (Get-Command python).Source
-$pythonRoot = Split-Path (Split-Path $pythonExe -Parent) -Parent
+$pythonRoot = Split-Path $pythonExe -Parent
 New-Item -ItemType Directory -Force -Path (Join-Path $out "data\logs") | Out-Null
 Copy-Item $pythonRoot (Join-Path $out "python") -Recurse -Force
 & (Join-Path $out "python\python.exe") -m pip install --upgrade pip
@@ -348,5 +348,6 @@ python -c "import pathlib,yaml; yaml.safe_load(pathlib.Path('.github/workflows/m
 - `--test-notification` 可用本地 `config.json` 发送测试。
 - Windows 绿色版可运行 `install-task.bat` 并在干净 Windows 上创建任务；打包版本不依赖 Playwright，动态站点使用 HTTP 降级。
 - 自托管 Runner 文档完成；服务器一旦注册即可运行。
+
 
 
