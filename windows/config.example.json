@@ -1,0 +1,7 @@
+{
+  "smtp_user": "",
+  "smtp_auth_code": "",
+  "email_to": "",
+  "wecom_webhook": "",
+  "schedule_minutes": 30
+}
