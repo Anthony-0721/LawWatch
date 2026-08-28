@@ -7,6 +7,7 @@
 - 一台可联网的国内 Linux 服务器（可选用任一国内云厂商的轻量应用服务器），建议 Ubuntu 22.04+、2 核 2GB 以上；
 - 服务器出站可访问 `github.com`（Runner 需从 GitHub 拉取任务）及目标 `.gov.cn` 站点；
 - 对 `Anthony-0721/LawWatch` 仓库有管理权限，用于生成 Runner 注册 token；
+- 本项目的交付远程是 `anthony`（`Anthony-0721/LawWatch`）；`origin` 指向 `zhou1274/LawWatch` 仅为历史记录，不要用它交付或注册 Runner。
 - 已安装 `git`、`python3`、`curl`（`setup-domestic-runner.sh` 会检查这三个命令）。
 
 ## 2. 获取注册 token
@@ -40,7 +41,7 @@ curl -fsSL https://raw.githubusercontent.com/Anthony-0721/LawWatch/main/scripts/
 sudo env RUNNER_TOKEN="粘贴注册token" bash scripts/setup-domestic-runner.sh
 ```
 
-脚本默认：Runner 名称 `lawwatch-domestic`、标签 `self-hosted,linux,x64,lawwatch-domestic`、版本 2.327.1、安装目录 `$HOME/actions-runner`；随后下载 Runner 压缩包、以 unattended 模式注册，并在 root 下通过 `svc.sh` 安装并启动为系统服务。需要覆盖仓库/名称/目录等默认值时，可用 `REPO_OWNER`、`REPO_NAME`、`RUNNER_NAME`、`RUNNER_LABELS`、`RUNNER_DIR` 环境变量调整。
+脚本默认：Runner 名称 `lawwatch-domestic`、标签 `self-hosted,linux,x64,lawwatch-domestic`、版本 2.327.1、安装目录 `$HOME/actions-runner`；随后下载 Runner 压缩包、以 unattended 模式注册，并在 root 下通过 `svc.sh` 安装并启动为系统服务。需要覆盖仓库/名称/目录等默认值时，可用 `REPO_OWNER`、`REPO_NAME`、`RUNNER_NAME`、`RUNNER_LABELS`、`RUNNER_VERSION`、`RUNNER_DIR` 环境变量调整。
 
 以普通用户运行也可以：脚本会完成配置但不安装服务，按提示在终端运行 `./run.sh` 保持 Runner 存活。
 
@@ -63,7 +64,7 @@ sudo env RUNNER_TOKEN="粘贴注册token" bash scripts/setup-domestic-runner.sh
 
 1. 在 Actions 运行详情中确认每个步骤成功（绿色）；
 2. 首次成功的运行只建立基线、不发通知；运行结束后工作流会把去重状态提交回仓库，检查 `monitor/state.json`：`baselined` 变为 `true` 表示基线已建立；
-3. 如果所有站点都失败，`baselined` 保持 `false`，工作流不会提交状态，需要先排查网络后再重跑。
+3. 如果所有站点都失败，`baselined` 保持 `false`；`errors` 的变化仍可能被工作流提交，但下一次成功的运行仍会被当作首次基线处理、不发通知。
 
 ## 7. 检查状态与日志
 

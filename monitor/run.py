@@ -1,5 +1,6 @@
 import argparse
 import json
+import logging
 import os
 import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
@@ -19,6 +20,8 @@ from .notify import notify_all, send_test_notification
 from .state import StateStore
 
 DEFAULT_MAX_WORKERS = 5
+
+logger = logging.getLogger(__name__)
 
 
 def _resolve_workers(max_workers, site_count: int) -> int:
@@ -114,6 +117,9 @@ def run(
         "notifications_ok": notifications_ok,
         "persisted": persisted,
     }
+    for url, message in all_errors.items():
+        logger.error("site failed: %s: %s", url, message)
+    logger.info("run summary: %s", json.dumps(summary, ensure_ascii=False))
     print(json.dumps(summary, ensure_ascii=False))
     if not persist:
         would_notify = bool(new_items and send and not baseline)

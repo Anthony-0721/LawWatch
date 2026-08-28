@@ -35,7 +35,7 @@ LawWatchMonitor\
     ├── sites.csv           站点清单
     ├── state.json          去重状态与基线标记
     └── logs\
-        └── monitor.log     日志（保留最近 30 天）
+        └── monitor.log     日志（按天轮转，保留最近 30 天）
 ```
 
 ## 构建便携包
@@ -94,7 +94,7 @@ powershell -ExecutionPolicy Bypass -File scripts\prepare-windows-portable.ps1
 
 ## 注册计划任务
 
-双击 `install-task.bat`。脚本会创建名为 `LawWatch Monitor` 的任务，以当前用户身份每 30 分钟执行一次 `run.bat --send`。若系统提示需要管理员权限，请允许。
+双击 `install-task.bat`。脚本会创建名为 `LawWatch Monitor` 的任务，以当前用户身份每 30 分钟执行一次 `run.bat --send`。安装时若系统提示需要管理员权限或要求输入该用户密码，请允许/输入；任务不保存密码。
 
 验证任务：
 
@@ -104,7 +104,7 @@ schtasks /query /tn "LawWatch Monitor"
 
 任务行为说明：
 
-- 仅在注册时指定的用户**已登录 Windows** 时运行（交互式任务），用户注销后不执行；
+- 任务以注册时指定的用户身份运行，但**仅在该用户已登录 Windows 时执行**，用户注销后不执行；安装时系统可能提示输入该用户密码（或要求交互式登录），任务不保存密码；
 - 每 30 分钟触发一次；如需修改间隔，编辑 `install-task.bat` 中的 `/mo` 值后重新运行；
 - 错过计划开始时间（例如关机、未登录）后是否补跑，由任务计划程序中该任务的“错过计划开始后尽快启动”设置决定，可在 `任务计划程序 → LawWatch Monitor → 属性 → 设置` 中确认或调整。
 
@@ -132,6 +132,6 @@ schtasks /query /tn "LawWatch Monitor"
 ## 注意事项
 
 - 便携包不内置 Chromium 浏览器，动态站点在浏览器不可用时自动降级为普通 HTTP 抓取（会在输出/日志中提示）；
-- 日志与去重状态只保留最近 30 天；
-- Windows 版默认不发送失败报警，失败信息记录在 `data\logs\monitor.log`；通知失败时下一轮自动重试；
+- 日志按天轮转并保留最近 30 天，去重状态保留最近 30 天；
+- Windows 版默认不发送失败报警；每轮运行的结果摘要与各站点失败会写入 `data\logs\monitor.log`，站点错误同时记录在 `data\state.json` 的 `errors` 中；通知失败时下一轮自动重试；
 - 发布/复制前检查包内不含 `config.json` 或任何真实凭据。

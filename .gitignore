@@ -5,6 +5,7 @@ __pycache__/
 *.pyc
 .env
 monitor/.cache/
+monitor/logs/
 
 config.json
 LawWatchMonitor/
