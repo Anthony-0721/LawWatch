@@ -22,7 +22,7 @@ LawWatch Monitor - Windows 便携版打包说明
 
   powershell -ExecutionPolicy Bypass -File scripts\prepare-windows-portable.ps1
 
-脚本依次执行：
+脚本会先校验 python 命令指向真实安装（拒绝 Microsoft Store 的 0 字节占位程序），并删除旧的 dist/LawWatchMonitor/，然后依次执行：
 
 1. 把当前 PATH 中 python 所在的整个安装目录复制到
    dist/LawWatchMonitor/python\；
@@ -31,8 +31,8 @@ LawWatch Monitor - Windows 便携版打包说明
 4. 生成全新 data\：复制 sites.csv、写入空 state.json
    （baselined=false，首次运行将重新建立基线）并创建 logs\ 目录。
 
-每次运行都会以当前源码重新生成 dist/LawWatchMonitor/。需要重建时直接再次运行，
-无需手工清理。
+每次运行都会先删除旧的 dist/LawWatchMonitor/，再以当前源码重新生成，避免旧文件
+残留。需要重建时直接再次运行，无需手工清理。
 
 三、冒烟测试
 
@@ -53,6 +53,6 @@ LawWatch Monitor - Windows 便携版打包说明
 
 1. 便携包内含完整 Python 运行时，体积较大（取决于构建机 Python 安装内容）；
 2. 目标机器无需安装 Python，程序使用包内 python\python.exe 运行；
-3. monitor\ 按源码原样复制（可能含 __pycache__ 与源码目录下的 state.json），
-   运行时不使用它们，状态只读写 data\ 下的文件；
+3. monitor\ 按源码复制，脚本会清理包内的 __pycache__ 目录；源码目录下的
+   state.json 也会被带入，但运行时不使用，状态只读写 data\ 下的文件；
 4. 更新发布包时保留接收方机器上的 config.json 与 data\，仅覆盖其余文件。

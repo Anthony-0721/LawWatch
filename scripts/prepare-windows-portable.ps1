@@ -2,6 +2,16 @@ $ErrorActionPreference = "Stop"
 $root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $out = Join-Path $root "dist\LawWatchMonitor"
 $pythonExe = (Get-Command python).Source
+if (-not (Test-Path -LiteralPath $pythonExe) -or (Get-Item -LiteralPath $pythonExe).Length -eq 0) {
+    throw "python resolves to an invalid or 0-byte Microsoft Store stub: $pythonExe. Install a real Python interpreter and retry."
+}
+$rootPrefix = $root.TrimEnd('\','/') + [System.IO.Path]::DirectorySeparatorChar
+if (-not $out.StartsWith($rootPrefix, [System.StringComparison]::OrdinalIgnoreCase)) {
+    throw "Refusing to remove output outside the repository root: $out"
+}
+if (Test-Path -LiteralPath $out) {
+    Remove-Item -LiteralPath $out -Recurse -Force
+}
 $pythonRoot = Split-Path $pythonExe -Parent
 New-Item -ItemType Directory -Force -Path (Join-Path $out "data\logs") | Out-Null
 Copy-Item $pythonRoot (Join-Path $out "python") -Recurse -Force
