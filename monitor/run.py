@@ -14,6 +14,7 @@ from .config import (
 )
 from .discovery import discover_for_site, is_list_candidate
 from .fetcher import BrowserFetcher, HttpFetcher
+from .logging_util import setup_logging
 from .notify import notify_all, send_test_notification
 from .state import StateStore
 
@@ -54,6 +55,7 @@ def run(
     max_workers: int | None = None,
     local_config: dict | None = None,
 ) -> dict:
+    setup_logging(data_dir() / "logs")
     data_dir().mkdir(parents=True, exist_ok=True)
     sites = load_sites()
     store = StateStore(default_state_path())
