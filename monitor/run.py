@@ -17,14 +17,17 @@ def run(send: bool = False, max_pages: int = 30) -> dict:
     list_urls = store.data.get("list_urls", {})
 
     for site in sites:
-        fetcher = BrowserFetcher() if site.dynamic else HttpFetcher()
-        known = tuple(url for url in list_urls.get(site.url, []) if is_list_candidate(url, ""))
-        documents, discovered, errors = discover_for_site(
-            site, fetcher, known_list_urls=known, max_pages=max_pages
-        )
-        list_urls[site.url] = [url for url in discovered if is_list_candidate(url, "")]
-        all_documents.extend(documents)
-        all_errors.update(errors)
+        try:
+            fetcher = BrowserFetcher() if site.dynamic else HttpFetcher()
+            known = tuple(url for url in list_urls.get(site.url, []) if is_list_candidate(url, ""))
+            documents, discovered, errors = discover_for_site(
+                site, fetcher, known_list_urls=known, max_pages=max_pages
+            )
+            list_urls[site.url] = [url for url in discovered if is_list_candidate(url, "")]
+            all_documents.extend(documents)
+            all_errors.update(errors)
+        except Exception as exc:
+            all_errors[site.url] = str(exc)
 
     new_items, baseline = store.update(all_documents, all_errors)
     store.data["list_urls"] = list_urls
