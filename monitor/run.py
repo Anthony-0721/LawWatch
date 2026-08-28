@@ -1,6 +1,8 @@
 import argparse
 import json
+import os
 import sys
+from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
 from .config import load_sites
@@ -9,8 +11,42 @@ from .fetcher import BrowserFetcher, HttpFetcher
 from .notify import notify_all, send_test_notification
 from .state import StateStore
 
+DEFAULT_MAX_WORKERS = 5
 
-def run(send: bool = False, max_pages: int = 30, persist: bool = True) -> dict:
+
+def _resolve_workers(max_workers, site_count: int) -> int:
+    if max_workers is None:
+        env_value = os.getenv("MONITOR_MAX_WORKERS", "").strip()
+        max_workers = int(env_value) if env_value.isdigit() else DEFAULT_MAX_WORKERS
+    try:
+        workers = int(max_workers)
+    except (TypeError, ValueError):
+        workers = DEFAULT_MAX_WORKERS
+    workers = max(1, workers)
+    return min(workers, site_count) if site_count else 1
+
+
+def _crawl_site(site, known_list_urls, max_pages):
+    fetcher = BrowserFetcher() if site.dynamic else HttpFetcher()
+    try:
+        documents, discovered, errors = discover_for_site(
+            site, fetcher, known_list_urls=known_list_urls, max_pages=max_pages
+        )
+        return site.url, documents, discovered, errors
+    except Exception as exc:
+        return site.url, [], [], {site.url: str(exc)}
+    finally:
+        close = getattr(fetcher, "close", None)
+        if close is not None:
+            close()
+
+
+def run(
+    send: bool = False,
+    max_pages: int = 30,
+    persist: bool = True,
+    max_workers: int | None = None,
+) -> dict:
     sites = load_sites()
     store = StateStore(Path(__file__).resolve().parent / "state.json")
     all_documents = []
@@ -18,25 +54,30 @@ def run(send: bool = False, max_pages: int = 30, persist: bool = True) -> dict:
     list_urls = store.data.get("list_urls", {})
     any_site_ok = False
 
-    browser_fetcher = BrowserFetcher() if any(site.dynamic for site in sites) else None
-    try:
-        for site in sites:
-            try:
-                fetcher = browser_fetcher if site.dynamic else HttpFetcher()
-                known = tuple(url for url in list_urls.get(site.url, []) if is_list_candidate(url, ""))
-                documents, discovered, errors = discover_for_site(
-                    site, fetcher, known_list_urls=known, max_pages=max_pages
+    results: dict[str, tuple] = {}
+    if sites:
+        worker_count = _resolve_workers(max_workers, len(sites))
+        future_to_site = {}
+        with ThreadPoolExecutor(max_workers=worker_count) as pool:
+            for site in sites:
+                known = tuple(
+                    url for url in list_urls.get(site.url, []) if is_list_candidate(url, "")
                 )
-                if not errors:
-                    any_site_ok = True
-                list_urls[site.url] = [url for url in discovered if is_list_candidate(url, "")]
-                all_documents.extend(documents)
-                all_errors.update(errors)
-            except Exception as exc:
-                all_errors[site.url] = str(exc)
-    finally:
-        if browser_fetcher is not None:
-            browser_fetcher.close()
+                future_to_site[pool.submit(_crawl_site, site, known, max_pages)] = site
+            for future in as_completed(future_to_site):
+                site = future_to_site[future]
+                try:
+                    results[site.url] = future.result()
+                except Exception as exc:
+                    results[site.url] = (site.url, [], [], {site.url: str(exc)})
+
+    for site in sites:
+        _, documents, discovered, errors = results[site.url]
+        if not errors:
+            any_site_ok = True
+        list_urls[site.url] = [url for url in discovered if is_list_candidate(url, "")]
+        all_documents.extend(documents)
+        all_errors.update(errors)
 
     new_items, baseline = store.update(all_documents, all_errors, sites_ok=any_site_ok)
     store.data["list_urls"] = list_urls
@@ -81,6 +122,7 @@ def main() -> int:
     parser.add_argument("--send", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--max-pages", type=int, default=30)
+    parser.add_argument("--max-workers", type=int, default=None)
     parser.add_argument("--test-notification", action="store_true")
     args = parser.parse_args()
     if args.test_notification:
@@ -91,6 +133,7 @@ def main() -> int:
         send=args.send and not args.dry_run,
         max_pages=args.max_pages,
         persist=not args.dry_run,
+        max_workers=args.max_workers,
     )
     if result.get("notifications_ok") is False:
         print("monitor: notifications failed; exiting with status 1", file=sys.stderr)

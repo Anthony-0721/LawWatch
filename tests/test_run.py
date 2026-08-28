@@ -1,4 +1,6 @@
 import sys
+import threading
+import time
 
 from monitor.models import Document, FetchResult, Site
 from monitor.run import main, run
@@ -61,6 +63,66 @@ def test_site_failure_does_not_stop_other_sites(monkeypatch):
         "sites": 2,
         "documents": 1,
         "new_count": 1,
+        "baseline": False,
+        "errors": 1,
+        "notifications_ok": True,
+        "persisted": True,
+    }
+
+
+def test_sites_crawl_concurrently_and_failure_is_isolated(monkeypatch):
+    sites = [
+        Site(province="浙江", url="https://example.com/bad"),
+        Site(province="广东", url="https://example.com/good-one"),
+        Site(province="海南", url="https://example.com/good-two"),
+    ]
+    documents = {
+        sites[1].url: Document(
+            url="https://example.com/good-one/doc/1",
+            title="测试公文一",
+            province="广东",
+            source_url=sites[1].url,
+        ),
+        sites[2].url: Document(
+            url="https://example.com/good-two/doc/1",
+            title="测试公文二",
+            province="海南",
+            source_url=sites[2].url,
+        ),
+    }
+    lock = threading.Lock()
+    active = 0
+    max_active = 0
+    threads_seen = set()
+
+    def fake_discover(site, fetcher, known_list_urls=(), max_pages=30):
+        nonlocal active, max_active
+        with lock:
+            active += 1
+            max_active = max(max_active, active)
+            threads_seen.add(threading.get_ident())
+        try:
+            time.sleep(0.05)
+        finally:
+            with lock:
+                active -= 1
+        if site.url == sites[0].url:
+            raise RuntimeError("boom")
+        return [documents[site.url]], [site.url], {}
+
+    state = FakeState(None)
+    monkeypatch.setattr("monitor.run.load_sites", lambda: sites)
+    monkeypatch.setattr("monitor.run.StateStore", lambda path: state)
+    monkeypatch.setattr("monitor.run.discover_for_site", fake_discover)
+
+    result = run(send=False)
+    assert max_active >= 2
+    assert len(threads_seen) >= 2
+    assert state.received_errors == {sites[0].url: "boom"}
+    assert result == {
+        "sites": 3,
+        "documents": 2,
+        "new_count": 2,
         "baseline": False,
         "errors": 1,
         "notifications_ok": True,
@@ -213,7 +275,9 @@ def test_main_returns_nonzero_when_notifications_fail(monkeypatch, capsys):
     monkeypatch.setattr(sys, "argv", ["monitor.run", "--send"])
     monkeypatch.setattr(
         "monitor.run.run",
-        lambda send=False, max_pages=30, persist=True: {"notifications_ok": False},
+        lambda send=False, max_pages=30, persist=True, max_workers=None: {
+            "notifications_ok": False
+        },
     )
     assert main() == 1
     assert "exiting with status 1" in capsys.readouterr().err
@@ -223,7 +287,9 @@ def test_main_returns_zero_when_notifications_ok(monkeypatch):
     monkeypatch.setattr(sys, "argv", ["monitor.run", "--send"])
     monkeypatch.setattr(
         "monitor.run.run",
-        lambda send=False, max_pages=30, persist=True: {"notifications_ok": True},
+        lambda send=False, max_pages=30, persist=True, max_workers=None: {
+            "notifications_ok": True
+        },
     )
     assert main() == 0
 
@@ -238,7 +304,12 @@ def test_main_dry_run_passes_persist_false_and_send_false(monkeypatch):
     monkeypatch.setattr(sys, "argv", ["monitor.run", "--dry-run", "--max-pages", "15"])
     monkeypatch.setattr("monitor.run.run", fake_run)
     assert main() == 0
-    assert received == {"send": False, "max_pages": 15, "persist": False}
+    assert received == {
+        "send": False,
+        "max_pages": 15,
+        "persist": False,
+        "max_workers": None,
+    }
 
 
 def test_empty_first_run_baselines_and_second_run_notifies(tmp_path, monkeypatch):

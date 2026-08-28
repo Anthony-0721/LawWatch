@@ -14,6 +14,17 @@
 4. 本地测试：`python -m monitor.run --dry-run --max-pages 1`（只抓取与检测，不发送通知、不写入 `monitor/state.json`）。
 5. 本地测试完整通知：`python -m monitor.run --send`（需要先设好环境变量）。
 
+## 抓取预算与超时
+
+工作流正常运行时执行 `python -m monitor.run --send --max-pages 8`，任务超时上限为 30 分钟。默认抓取预算如下：
+
+- 站点之间最多 5 个并发线程（可用 `--max-workers N` 或环境变量 `MONITOR_MAX_WORKERS` 覆盖，且不会超过站点总数）；
+- 每个站点最多抓取 8 页；
+- 普通 HTTP 请求超时 10 秒、失败最多重试 1 次；
+- 动态站点浏览器页面加载超时 20 秒。
+
+即使压缩了抓取预算，GitHub 托管 Runner 仍可能被部分 `.gov.cn` 网站限流或拒绝；如果基线长期无法建立，请改用中国大陆的自托管 Runner（见下文）。
+
 ## 验证通知送达
 
 在 GitHub Actions 打开 `Monitor provincial legal notices` 工作流，点击 **Run workflow**，勾选 `test_notification` 后运行。测试模式只发送一条样例通知，不抓取、不修改基线、不写入 `monitor/state.json`；首次成功即说明已配置的通知渠道（企业微信/邮件）可以正常送达。

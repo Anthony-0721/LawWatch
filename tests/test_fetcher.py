@@ -5,6 +5,17 @@ from monitor.fetcher import BrowserFetcher, HttpFetcher
 from monitor.models import FetchResult
 
 
+def test_http_fetcher_reduced_defaults():
+    fetcher = HttpFetcher()
+    assert fetcher.timeout == 10
+    assert fetcher.retries == 1
+
+
+def test_browser_fetcher_reduced_default_timeout():
+    fetcher = BrowserFetcher()
+    assert fetcher.timeout == 20
+
+
 def test_http_fetcher_returns_html(monkeypatch):
     class FakeResponse:
         status_code = 200

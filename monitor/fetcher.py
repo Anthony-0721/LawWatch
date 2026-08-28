@@ -14,7 +14,7 @@ DEFAULT_HEADERS = {
 
 
 class HttpFetcher:
-    def __init__(self, timeout: int = 20, retries: int = 2):
+    def __init__(self, timeout: int = 10, retries: int = 1):
         self.timeout = timeout
         self.retries = retries
 
@@ -40,7 +40,7 @@ class HttpFetcher:
 
 
 class BrowserFetcher:
-    def __init__(self, timeout: int = 30):
+    def __init__(self, timeout: int = 20):
         self.timeout = timeout
         self._http = HttpFetcher(timeout=self.timeout)
         self._playwright = None
