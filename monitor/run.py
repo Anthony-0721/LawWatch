@@ -5,7 +5,13 @@ import sys
 from concurrent.futures import ThreadPoolExecutor, as_completed
 from pathlib import Path
 
-from .config import load_sites
+from .config import (
+    app_root,
+    data_dir,
+    default_state_path,
+    load_local_config,
+    load_sites,
+)
 from .discovery import discover_for_site, is_list_candidate
 from .fetcher import BrowserFetcher, HttpFetcher
 from .notify import notify_all, send_test_notification
@@ -46,9 +52,11 @@ def run(
     max_pages: int = 30,
     persist: bool = True,
     max_workers: int | None = None,
+    local_config: dict | None = None,
 ) -> dict:
+    data_dir().mkdir(parents=True, exist_ok=True)
     sites = load_sites()
-    store = StateStore(Path(__file__).resolve().parent / "state.json")
+    store = StateStore(default_state_path())
     all_documents = []
     all_errors = {}
     list_urls = store.data.get("list_urls", {})
@@ -85,7 +93,10 @@ def run(
 
     notifications_ok = True
     if new_items and send and not baseline:
-        notifications_ok = notify_all(new_items)
+        if local_config is not None:
+            notifications_ok = notify_all(new_items, local_config)
+        else:
+            notifications_ok = notify_all(new_items)
 
     persisted = False
     if persist and notifications_ok:
@@ -125,17 +136,38 @@ def main() -> int:
     parser.add_argument("--max-pages", type=int, default=30)
     parser.add_argument("--max-workers", type=int, default=None)
     parser.add_argument("--test-notification", action="store_true")
+    parser.add_argument("--config", default=None, help="Path to a local config.json file.")
+    parser.add_argument("--data-dir", default=None, help="Directory for sites, state, and log data.")
     args = parser.parse_args()
+
+    if args.data_dir:
+        os.environ["LAWWATCH_DATA_DIR"] = args.data_dir
+
+    local_config = None
+    if args.config:
+        local_config = load_local_config(Path(args.config))
+    else:
+        env_config = os.getenv("LAWWATCH_CONFIG", "").strip()
+        candidate = Path(env_config) if env_config else None
+        if candidate is None and getattr(sys, "frozen", False):
+            candidate = app_root() / "config.json"
+        if candidate is not None and candidate.exists():
+            local_config = load_local_config(candidate)
+
     if args.test_notification:
-        ok = send_test_notification()
+        ok = send_test_notification(local_config)
         print(json.dumps({"test_notification": ok}))
         return 0 if ok else 1
-    result = run(
-        send=args.send and not args.dry_run,
-        max_pages=args.max_pages,
-        persist=not args.dry_run,
-        max_workers=args.max_workers,
-    )
+
+    kwargs = {
+        "send": args.send and not args.dry_run,
+        "max_pages": args.max_pages,
+        "persist": not args.dry_run,
+        "max_workers": args.max_workers,
+    }
+    if local_config is not None:
+        kwargs["local_config"] = local_config
+    result = run(**kwargs)
     if result.get("notifications_ok") is False:
         print("monitor: notifications failed; exiting with status 1", file=sys.stderr)
         return 1

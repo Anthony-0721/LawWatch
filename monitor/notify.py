@@ -65,22 +65,35 @@ def send_email(settings: dict, items: list[Document]) -> None:
         smtp.sendmail(settings["user"], settings["to"], message.as_string())
 
 
-def notify_all(items: list[Document]) -> bool:
-    wecom = os.getenv("WECOM_WEBHOOK", "").strip()
-    user = os.getenv("SMTP_USER", "").strip()
-    auth = os.getenv("SMTP_AUTH_CODE", "").strip()
-    to = [x.strip() for x in os.getenv("EMAIL_TO", "").split(",") if x.strip()]
+def _notification_settings(local_config: dict | None = None) -> dict:
+    config = local_config or {}
+    wecom = (config.get("wecom_webhook") or "").strip() or os.getenv("WECOM_WEBHOOK", "").strip()
+    user = (config.get("smtp_user") or "").strip() or os.getenv("SMTP_USER", "").strip()
+    auth = (config.get("smtp_auth_code") or "").strip() or os.getenv("SMTP_AUTH_CODE", "").strip()
+    raw_to = (config.get("email_to") or "").strip() or os.getenv("EMAIL_TO", "")
+    to = [part.strip() for part in raw_to.split(",") if part.strip()]
+    return {"wecom": wecom, "user": user, "auth": auth, "to": to}
+
+
+def notify_all(items: list[Document], local_config: dict | None = None) -> bool:
+    settings = _notification_settings(local_config)
     any_succeeded = False
-    if wecom:
+    if settings["wecom"]:
         try:
-            send_wecom(wecom, items)
+            send_wecom(settings["wecom"], items)
             any_succeeded = True
         except Exception as exc:
             print(f"[notify] WeCom notification failed: {exc}", file=sys.stderr)
-    if user and auth and to:
+    if settings["user"] and settings["auth"] and settings["to"]:
         try:
             send_email(
-                {"host": "smtp.qq.com", "port": 465, "user": user, "password": auth, "to": to},
+                {
+                    "host": "smtp.qq.com",
+                    "port": 465,
+                    "user": settings["user"],
+                    "password": settings["auth"],
+                    "to": settings["to"],
+                },
                 items,
             )
             any_succeeded = True
@@ -89,28 +102,31 @@ def notify_all(items: list[Document]) -> bool:
     return any_succeeded
 
 
-def send_test_notification() -> bool:
+def send_test_notification(local_config: dict | None = None) -> bool:
     sample = Document(
         url="https://example.test/lawwatch",
         title="LawWatch 通知测试",
         province="测试",
         source_url="https://example.test/lawwatch",
     )
-    wecom = os.getenv("WECOM_WEBHOOK", "").strip()
-    user = os.getenv("SMTP_USER", "").strip()
-    auth = os.getenv("SMTP_AUTH_CODE", "").strip()
-    to = [x.strip() for x in os.getenv("EMAIL_TO", "").split(",") if x.strip()]
+    settings = _notification_settings(local_config)
     any_succeeded = False
-    if wecom:
+    if settings["wecom"]:
         try:
-            send_wecom(wecom, [sample])
+            send_wecom(settings["wecom"], [sample])
             any_succeeded = True
         except Exception as exc:
             print(f"[notify] WeCom test notification failed: {exc}", file=sys.stderr)
-    if user and auth and to:
+    if settings["user"] and settings["auth"] and settings["to"]:
         try:
             send_email(
-                {"host": "smtp.qq.com", "port": 465, "user": user, "password": auth, "to": to},
+                {
+                    "host": "smtp.qq.com",
+                    "port": 465,
+                    "user": settings["user"],
+                    "password": settings["auth"],
+                    "to": settings["to"],
+                },
                 [sample],
             )
             any_succeeded = True
