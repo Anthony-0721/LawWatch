@@ -44,8 +44,9 @@ LawWatch Monitor - Windows 便携版使用说明
 四、注册计划任务
 
 双击 install-task.bat。脚本会创建名为 "LawWatch Monitor" 的任务，每 30 分钟以当前
-用户身份执行 run.bat --send。若系统提示需要管理员权限，请允许。任务在未登录 Windows
-时不会执行。
+用户身份执行 run.bat --send。安装过程中 SchTasks 可能提示输入该用户的登录密码，并把
+任务凭据交给 Windows 管理。任务仅在创建该任务时的 Windows 用户登录期间运行，用户
+注销后不运行。
 
 验证任务是否存在：在命令提示符运行
   schtasks /query /tn "LawWatch Monitor"

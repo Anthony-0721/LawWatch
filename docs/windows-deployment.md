@@ -9,7 +9,7 @@
 - 64 位 Windows 10 / Windows 11，或 Windows Server 2019 / 2022；
 - 无需安装 Python；
 - 能访问需要监测的 `.gov.cn` 站点以及企业微信 / 邮件服务器；
-- 计划任务只在用户已登录时运行，因此运行账户需要保持登录。
+- 任务仅在创建该任务时的 Windows 用户登录期间运行，用户注销后不运行。
 
 构建机器（打包用，只需一台 Windows 开发机）：
 
@@ -94,7 +94,7 @@ powershell -ExecutionPolicy Bypass -File scripts\prepare-windows-portable.ps1
 
 ## 注册计划任务
 
-双击 `install-task.bat`。脚本会创建名为 `LawWatch Monitor` 的任务，以当前用户身份每 30 分钟执行一次 `run.bat --send`。安装时若系统提示需要管理员权限或要求输入该用户密码，请允许/输入；任务不保存密码。
+双击 `install-task.bat`。脚本会创建名为 `LawWatch Monitor` 的任务，以当前用户身份每 30 分钟执行一次 `run.bat --send`。安装过程中 SchTasks 可能提示输入该用户的登录密码，并把任务凭据交给 Windows 管理。
 
 验证任务：
 
@@ -104,7 +104,7 @@ schtasks /query /tn "LawWatch Monitor"
 
 任务行为说明：
 
-- 任务以注册时指定的用户身份运行，但**仅在该用户已登录 Windows 时执行**，用户注销后不执行；安装时系统可能提示输入该用户密码（或要求交互式登录），任务不保存密码；
+- 任务仅在创建该任务时的 Windows 用户登录期间运行，用户注销后不运行；安装过程中 SchTasks 可能提示输入该用户的登录密码，并把任务凭据交给 Windows 管理；
 - 每 30 分钟触发一次；如需修改间隔，编辑 `install-task.bat` 中的 `/mo` 值后重新运行；
 - 错过计划开始时间（例如关机、未登录）后是否补跑，由任务计划程序中该任务的“错过计划开始后尽快启动”设置决定，可在 `任务计划程序 → LawWatch Monitor → 属性 → 设置` 中确认或调整。
 
