@@ -8,11 +8,13 @@ Copy-Item $pythonRoot (Join-Path $out "python") -Recurse -Force
 & (Join-Path $out "python\python.exe") -m pip install --upgrade pip
 & (Join-Path $out "python\python.exe") -m pip install -r (Join-Path $root "requirements.txt")
 Copy-Item (Join-Path $root "monitor") (Join-Path $out "monitor") -Recurse -Force
+Get-ChildItem (Join-Path $out "monitor") -Directory -Recurse -Filter "__pycache__" | Remove-Item -Recurse -Force
 Copy-Item (Join-Path $root "windows\run.bat") (Join-Path $out "run.bat") -Force
 Copy-Item (Join-Path $root "windows\config.example.json") (Join-Path $out "config.example.json") -Force
 Copy-Item (Join-Path $root "windows\install-task.bat") (Join-Path $out "install-task.bat") -Force
 Copy-Item (Join-Path $root "windows\uninstall-task.bat") (Join-Path $out "uninstall-task.bat") -Force
 Copy-Item (Join-Path $root "windows\README.txt") (Join-Path $out "README.txt") -Force
 Copy-Item (Join-Path $root "monitor\sites.csv") (Join-Path $out "data\sites.csv") -Force
-"{`"documents`":{},`"list_urls`":{},`"errors`":{},`"baselined`":false}" | Set-Content (Join-Path $out "data\state.json") -Encoding utf8
+$stateJson = "{`"documents`":{},`"list_urls`":{},`"errors`":{},`"baselined`":false}"
+[System.IO.File]::WriteAllText((Join-Path $out "data\state.json"), $stateJson, (New-Object System.Text.UTF8Encoding($false)))
 Write-Host "Built: $out"

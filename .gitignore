@@ -8,3 +8,6 @@ monitor/.cache/
 
 config.json
 LawWatchMonitor/
+
+dist/
+win-build/

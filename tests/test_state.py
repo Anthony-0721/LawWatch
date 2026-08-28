@@ -79,3 +79,15 @@ def test_save_is_atomic_and_writes_valid_json(tmp_path: Path):
     assert data["baselined"] is True
     assert data["documents"]["https://example.gov.cn/1"]["title"] == "关于设立律师事务所的公告"
     assert not list(tmp_path.glob("state.json.*tmp*"))
+
+def test_load_state_with_utf8_bom(tmp_path: Path):
+    path = tmp_path / "state.json"
+    path.write_text(
+        '\ufeff{"documents": {}, "list_urls": {}, "errors": {}}',
+        encoding="utf-8",
+    )
+    store = StateStore(path)
+    assert store.data["documents"] == {}
+    assert store.data["list_urls"] == {}
+    assert store.data["errors"] == {}
+    assert store.data["baselined"] is False

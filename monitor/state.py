@@ -19,7 +19,7 @@ class StateStore:
         self.path = Path(path)
         self.data = {"documents": {}, "list_urls": {}, "errors": {}, "baselined": False}
         if self.path.exists():
-            loaded = json.loads(self.path.read_text(encoding="utf-8"))
+            loaded = json.loads(self.path.read_text(encoding="utf-8-sig"))
             if isinstance(loaded, dict):
                 for key in ("documents", "list_urls", "errors"):
                     value = loaded.get(key)
