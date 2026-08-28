@@ -4,9 +4,9 @@
 
 **Goal:** 在现有监测核心上增加 Windows 绿色版运行模式，并保留国内自托管 GitHub Actions Runner 方案。
 
-**Architecture:** 保持同一 `monitor/` 核心；通过可执行文件所在目录的 `data/` 与本地 `config.json` 提供 Windows 配置；用 PyInstaller 打包成绿色版；用 `schtasks` 创建每 30 分钟任务；GitHub Actions 模式继续读取 Secrets。
+**Architecture:** 保持同一 `monitor/` 核心；通过可执行文件所在目录的 `data/` 与本地 `config.json` 提供 Windows 配置；用便携 Python 目录封装成绿色版；用 `schtasks` 创建每 30 分钟任务；GitHub Actions 模式继续读取 Secrets。
 
-**Tech Stack:** Python 3.12、PyInstaller、Windows Task Scheduler、PowerShell、GitHub Actions、现有 requests/BeautifulSoup/Playwright 栈。
+**Tech Stack:** Python 3.12 便携运行时、Windows Task Scheduler、PowerShell、GitHub Actions、现有 requests/BeautifulSoup/Playwright 栈。
 
 ## Global Constraints
 
@@ -184,24 +184,28 @@ git commit -m "feat(monitor): add local run logging"
 ## Task 3: Windows 启动器与任务计划脚本
 
 **Files:**
-- Create: `windows/launcher.py`
+- Create: `windows/run.bat`
 - Create: `windows/config.example.json`
 - Create: `windows/install-task.bat`
 - Create: `windows/uninstall-task.bat`
 - Create: `windows/README.txt`
 
 **Interfaces:**
-- Launcher entry point: `LawWatchMonitor.exe --send`
+- `run.bat` 接受 `--send` / `--dry-run` / `--test-notification`，使用 `%APP_DIR%python\python.exe -m monitor.run %*`
+- `install-task.bat` 创建任务名 `LawWatch Monitor`，每 30 分钟调用 `run.bat --send`
 
 **Step 1: Write files**
 
-`windows/launcher.py`:
+`windows/run.bat`:
 
-```python
-from monitor.run import main
-
-if __name__ == "__main__":
-    main()
+```bat
+@echo off
+setlocal
+set "APP_DIR=%~dp0"
+cd /d "%APP_DIR%"
+set "LAWWATCH_CONFIG=%APP_DIR%config.json"
+set "LAWWATCH_DATA_DIR=%APP_DIR%data"
+"%APP_DIR%python\python.exe" -m monitor.run %*
 ```
 
 `windows/config.example.json`:
@@ -222,13 +226,15 @@ if __name__ == "__main__":
 @echo off
 setlocal
 set "APP_DIR=%~dp0"
-set "EXE=%APP_DIR%LawWatchMonitor.exe"
+set "PY=%APP_DIR%python\python.exe"
+set "RUN=%APP_DIR%run.bat"
 set "CONFIG=%APP_DIR%config.json"
 set "DATA=%APP_DIR%data"
-if not exist "%EXE%" echo Error: LawWatchMonitor.exe not found & exit /b 1
+if not exist "%PY%" echo Error: python\python.exe not found & exit /b 1
+if not exist "%RUN%" echo Error: run.bat not found & exit /b 1
 if not exist "%CONFIG%" copy "%APP_DIR%config.example.json" "%CONFIG%" >nul
 if not exist "%DATA%" mkdir "%DATA%"
-schtasks /create /f /tn "LawWatch Monitor" /tr "\"%EXE%\" --send" /sc MINUTE /mo 30 /ru "%USERNAME%"
+schtasks /create /f /tn "LawWatch Monitor" /tr "\"%RUN%\" --send" /sc MINUTE /mo 30 /ru "%USERNAME%"
 echo Task "LawWatch Monitor" installed.
 echo Fill config.json before first run.
 ```
@@ -245,29 +251,24 @@ echo Task removed. config.json and data were kept.
 
 **Step 2: Validate scripts manually**
 
-```bash
-cmd /c "echo %PATH%"
+```powershell
+cmd /c "call windows\run.bat --dry-run"
 ```
 
 **Step 3: Commit**
 
 ```bash
 git add windows
-git commit -m "feat(windows): add launcher and task scheduler scripts"
-```
-
----
-
-## Task 4: PyInstaller Windows 打包
+git commit -m "feat(windows): add portable launcher and task scheduler scripts"
+```## Task 4: 便携 Python Windows 打包
 
 **Files:**
-- Create: `scripts/build-windows.ps1`
+- Create: `scripts/prepare-windows-portable.ps1`
 - Create: `win-build/README.txt`
-- Modify: `requirements-dev.txt` (add `pyinstaller>=6.0`)
 
 **Interfaces:**
-- Build output: `dist/LawWatchMonitor/LawWatchMonitor.exe`
-- Data prepared: `dist/LawWatchMonitor/data/sites.csv`, `state.json`, `logs/`
+- Build output: `dist/LawWatchMonitor/`
+- Layout: `python\`、`monitor\`、`run.bat`、`config.example.json`、`install-task.bat`、`uninstall-task.bat`、`data\`
 
 **Step 1: Write build script**
 
@@ -275,40 +276,41 @@ git commit -m "feat(windows): add launcher and task scheduler scripts"
 $ErrorActionPreference = "Stop"
 $root = (Resolve-Path (Join-Path $PSScriptRoot "..")).Path
 $out = Join-Path $root "dist\LawWatchMonitor"
-python -m pip install -r requirements.txt -r requirements-dev.txt
-python -m PyInstaller --noconfirm --clean --onedir --noconsole --name LawWatchMonitor --paths $root (Join-Path $root "windows\launcher.py")
+$pythonExe = (Get-Command python).Source
+$pythonRoot = Split-Path (Split-Path $pythonExe -Parent) -Parent
 New-Item -ItemType Directory -Force -Path (Join-Path $out "data\logs") | Out-Null
-Copy-Item (Join-Path $root "monitor\sites.csv") (Join-Path $out "data\sites.csv") -Force
+Copy-Item $pythonRoot (Join-Path $out "python") -Recurse -Force
+& (Join-Path $out "python\python.exe") -m pip install --upgrade pip
+& (Join-Path $out "python\python.exe") -m pip install -r (Join-Path $root "requirements.txt")
+Copy-Item (Join-Path $root "monitor") (Join-Path $out "monitor") -Recurse -Force
+Copy-Item (Join-Path $root "windows\run.bat") (Join-Path $out "run.bat") -Force
 Copy-Item (Join-Path $root "windows\config.example.json") (Join-Path $out "config.example.json") -Force
 Copy-Item (Join-Path $root "windows\install-task.bat") (Join-Path $out "install-task.bat") -Force
 Copy-Item (Join-Path $root "windows\uninstall-task.bat") (Join-Path $out "uninstall-task.bat") -Force
 Copy-Item (Join-Path $root "windows\README.txt") (Join-Path $out "README.txt") -Force
-"{""documents"":{},""list_urls"":{},""errors"":{},""baselined"":false}" | Set-Content (Join-Path $out "data\state.json") -Encoding utf8
+Copy-Item (Join-Path $root "monitor\sites.csv") (Join-Path $out "data\sites.csv") -Force
+"{`"documents`":{},`"list_urls`":{},`"errors`":{},`"baselined`":false}" | Set-Content (Join-Path $out "data\state.json") -Encoding utf8
 Write-Host "Built: $out"
 ```
 
 **Step 2: Run build on a Windows dev machine**
 
 ```powershell
-powershell -ExecutionPolicy Bypass -File scripts\build-windows.ps1
+powershell -ExecutionPolicy Bypass -File scripts\prepare-windows-portable.ps1
 ```
 
 **Step 3: Smoke test**
 
 ```powershell
-.\dist\LawWatchMonitor\LawWatchMonitor.exe --dry-run
+.\dist\LawWatchMonitor\run.bat --dry-run
 ```
 
 **Step 4: Commit build/config files**
 
 ```bash
-git add scripts/build-windows.ps1 requirements-dev.txt win-build/README.txt
-git commit -m "feat(windows): add PyInstaller build pipeline"
-```
-
----
-
-## Task 5: README 与自托管 Runner 验证说明
+git add scripts/prepare-windows-portable.ps1 win-build/README.txt
+git commit -m "feat(windows): add portable Python packaging pipeline"
+```## Task 5: README 与自托管 Runner 验证说明
 
 **Files:**
 - Modify: `README.md`
@@ -346,4 +348,5 @@ python -c "import pathlib,yaml; yaml.safe_load(pathlib.Path('.github/workflows/m
 - `--test-notification` 可用本地 `config.json` 发送测试。
 - Windows 绿色版可运行 `install-task.bat` 并在干净 Windows 上创建任务；打包版本不依赖 Playwright，动态站点使用 HTTP 降级。
 - 自托管 Runner 文档完成；服务器一旦注册即可运行。
+
 

@@ -15,12 +15,12 @@
 
 ## 2. 已确认决策
 
-1. Windows 版以绿色版文件夹形式交付，包含可执行程序、配置模板、站点 CSV、状态文件和安装脚本。
+1. Windows 版以绿色版文件夹形式交付，包含便携 Python 运行时、监控代码、配置模板、站点 CSV、状态文件和安装脚本。
 2. Windows 版由任务计划程序（Task Scheduler）触发，登录后自动运行，每 30 分钟一次；错过计划时间时尽量补跑。
 3. Windows 版使用本地 `config.json` 保存 SMTP、收件邮箱和企业微信 Webhook，不写入 Git、不随包提供真实凭据。
 4. Windows 版首次运行重新建立基线，不发送历史公文通知。
-5. 程序数据放在绿色版目录下的 `data/` 子目录：状态、站点清单、日志。
-6. 第一版采用未签名/自签名程序，安装脚本提供 SmartScreen 处理说明。
+5. 程序数据放在绿色版目录下的 `data/` 子目录：状态、站点清单、日志；运行入口是 `run.bat` 调用的便携 `python\\python.exe`。
+6. 第一版采用便携 Python 文件夹，不需要代码签名；如甲方要求，可在后续再处理签名。
 7. 目标系统为 64 位 Windows 10/11 和 Windows Server 2019/2022。
 8. 更新方式为手动替换绿色版文件，保留 `config.json` 和 `data/`。
 9. Windows 版默认不发送失败报警，只在日志中记录；通知失败时下一次运行重试。
@@ -43,7 +43,7 @@
 
 | 项目 | 自托管 Runner | Windows 计划任务 |
 |---|---|---|
-| Python 依赖 | GitHub Actions/Runner 安装 | PyInstaller 打包进绿色版 |
+| Python 依赖 | GitHub Actions/Runner 安装 | 便携 Python 运行时文件夹 |
 | 配置文件 | GitHub Actions Secrets | 本地 `config.json` |
 | 状态文件 | 提交回 GitHub `main` | 本地 `data/state.json` |
 | 定时 | GitHub Actions schedule | Windows Task Scheduler |
@@ -54,7 +54,10 @@
 
 ```text
 LawWatchMonitor\
-├── LawWatchMonitor.exe
+├── python\
+│   └── python.exe
+├── monitor\
+├── run.bat
 ├── config.example.json
 ├── config.json               ← 部署后填写
 ├── install-task.bat
@@ -126,7 +129,7 @@ LawWatchMonitor\
 1. 单元测试全部通过；
 2. 本地以 `python -m monitor.run --dry-run` 验证抓取、去重和日志；
 3. 使用测试通知模式验证邮箱/企业微信；
-4. PyInstaller 打包后在一台干净 Windows 10/11 或 Server 上运行 `install-task.bat`；
+4. 使用 `scripts/prepare-windows-portable.ps1` 生成便携目录后，在一台干净 Windows 10/11 或 Server 上解压并运行 `install-task.bat`；
 5. 验证任务计划每 30 分钟触发、日志写入、邮箱通知不重复；
 6. 自托管 Runner 上线后，手动运行工作流验证国内站点覆盖。
 
@@ -136,3 +139,5 @@ LawWatchMonitor\
 - 企业微信/邮件失败报警开关；
 - 自动更新下载和签名校验；
 - 多台甲方电脑批量部署。
+
+
