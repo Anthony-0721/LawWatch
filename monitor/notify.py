@@ -1,5 +1,6 @@
 import smtplib
 import os
+import sys
 from email.mime.text import MIMEText
 
 import requests
@@ -24,6 +25,11 @@ def send_wecom(webhook: str, items: list[Document]) -> None:
         return
     response = requests.post(webhook, json=build_wecom_payload(items), timeout=10)
     response.raise_for_status()
+    data = response.json()
+    if data.get("errcode", 0) != 0:
+        raise RuntimeError(
+            f"WeCom webhook error {data.get('errcode')}: {data.get('errmsg', 'unknown error')}"
+        )
 
 
 def build_email_body(items: list[Document]) -> str:
@@ -52,9 +58,15 @@ def notify_all(items: list[Document]) -> None:
     auth = os.getenv("SMTP_AUTH_CODE", "").strip()
     to = [x.strip() for x in os.getenv("EMAIL_TO", "").split(",") if x.strip()]
     if wecom:
-        send_wecom(wecom, items)
+        try:
+            send_wecom(wecom, items)
+        except Exception as exc:
+            print(f"[notify] WeCom notification failed: {exc}", file=sys.stderr)
     if user and auth and to:
-        send_email(
-            {"host": "smtp.qq.com", "port": 465, "user": user, "password": auth, "to": to},
-            items,
-        )
+        try:
+            send_email(
+                {"host": "smtp.qq.com", "port": 465, "user": user, "password": auth, "to": to},
+                items,
+            )
+        except Exception as exc:
+            print(f"[notify] email notification failed: {exc}", file=sys.stderr)
