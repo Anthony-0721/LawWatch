@@ -905,7 +905,7 @@ import json
 from pathlib import Path
 
 from .config import load_sites
-from .discovery import discover_for_site
+from .discovery import discover_for_site, is_list_candidate
 from .fetcher import BrowserFetcher, HttpFetcher
 from .notify import notify_all
 from .state import StateStore
@@ -920,11 +920,11 @@ def run(send: bool = False, max_pages: int = 30) -> dict:
 
     for site in sites:
         fetcher = BrowserFetcher() if site.dynamic else HttpFetcher()
-        known = tuple(list_urls.get(site.url, []))
+        known = tuple(url for url in list_urls.get(site.url, []) if is_list_candidate(url, ""))
         documents, discovered, errors = discover_for_site(
             site, fetcher, known_list_urls=known, max_pages=max_pages
         )
-        list_urls[site.url] = discovered
+        list_urls[site.url] = [url for url in discovered if is_list_candidate(url, "")]
         all_documents.extend(documents)
         all_errors.update(errors)
 
@@ -1091,5 +1091,6 @@ git status --short
 - `monitor/sites.csv` 有 31 行。
 - `monitor/state.json` 保持合法 JSON。
 - 本地 `--dry-run` 不会调用通知函数。
+
 
 
