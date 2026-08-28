@@ -14,6 +14,10 @@
 4. 本地测试：`python -m monitor.run --dry-run --max-pages 1`（只抓取与检测，不发送通知、不写入 `monitor/state.json`）。
 5. 本地测试完整通知：`python -m monitor.run --send`（需要先设好环境变量）。
 
+## 验证通知送达
+
+在 GitHub Actions 打开 `Monitor provincial legal notices` 工作流，点击 **Run workflow**，勾选 `test_notification` 后运行。测试模式只发送一条样例通知，不抓取、不修改基线、不写入 `monitor/state.json`；首次成功即说明已配置的通知渠道（企业微信/邮件）可以正常送达。
+
 ## 注意：GitHub 托管 Runner 与国内政府网站
 
 GitHub 托管的公共 Runner 出口 IP 可能被部分中国政府网站限流、超时或直接拒绝访问。首次真实运行后请检查工作流日志和 `monitor/state.json`：如果大量站点出现在 `errors` 中且 `baselined` 始终为 `false`，说明抓取被网络侧阻断，而不是程序缺陷。此时建议：

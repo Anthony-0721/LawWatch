@@ -167,3 +167,66 @@ def test_notify_all_returns_false_when_no_channel_is_configured(monkeypatch):
     monkeypatch.delenv("EMAIL_TO", raising=False)
 
     assert notify_all(items()) is False
+
+def test_send_test_notification_email_only_returns_true_and_sends_email(monkeypatch):
+    monkeypatch.delenv("WECOM_WEBHOOK", raising=False)
+    monkeypatch.setenv("SMTP_USER", "sender@example.com")
+    monkeypatch.setenv("SMTP_AUTH_CODE", "auth-code")
+    monkeypatch.setenv("EMAIL_TO", "a@example.com, b@example.com")
+
+    wecom_calls = []
+    email_settings = []
+    email_items = []
+
+    def record_wecom(webhook, items):
+        wecom_calls.append(webhook)
+
+    def record_email(settings, items):
+        email_settings.append(settings)
+        email_items.append(items)
+
+    monkeypatch.setattr(notify, "send_wecom", record_wecom)
+    monkeypatch.setattr(notify, "send_email", record_email)
+
+    assert notify.send_test_notification() is True
+    assert wecom_calls == []
+    assert len(email_settings) == 1
+    assert email_settings[0]["user"] == "sender@example.com"
+    assert email_settings[0]["to"] == ["a@example.com", "b@example.com"]
+    assert len(email_items) == 1
+    sample = email_items[0][0]
+    assert sample.url == "https://example.test/lawwatch"
+    assert sample.title == "LawWatch 通知测试"
+    assert sample.province == "测试"
+    assert sample.source_url == "https://example.test/lawwatch"
+
+
+def test_send_test_notification_no_channels_returns_false(monkeypatch):
+    monkeypatch.delenv("WECOM_WEBHOOK", raising=False)
+    monkeypatch.delenv("SMTP_USER", raising=False)
+    monkeypatch.delenv("SMTP_AUTH_CODE", raising=False)
+    monkeypatch.delenv("EMAIL_TO", raising=False)
+
+    assert notify.send_test_notification() is False
+
+
+def test_send_test_notification_wecom_failure_does_not_prevent_email(monkeypatch, capsys):
+    monkeypatch.setenv("WECOM_WEBHOOK", "https://example.com/hook")
+    monkeypatch.setenv("SMTP_USER", "sender@example.com")
+    monkeypatch.setenv("SMTP_AUTH_CODE", "auth-code")
+    monkeypatch.setenv("EMAIL_TO", "a@example.com")
+
+    def failing_wecom(webhook, items):
+        raise RuntimeError("wecom down")
+
+    email_calls = []
+
+    def record_email(settings, items):
+        email_calls.append((settings, items))
+
+    monkeypatch.setattr(notify, "send_wecom", failing_wecom)
+    monkeypatch.setattr(notify, "send_email", record_email)
+
+    assert notify.send_test_notification() is True
+    assert len(email_calls) == 1
+    assert "wecom down" in capsys.readouterr().err

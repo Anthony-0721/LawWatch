@@ -87,3 +87,33 @@ def notify_all(items: list[Document]) -> bool:
         except Exception as exc:
             print(f"[notify] email notification failed: {exc}", file=sys.stderr)
     return any_succeeded
+
+
+def send_test_notification() -> bool:
+    sample = Document(
+        url="https://example.test/lawwatch",
+        title="LawWatch 通知测试",
+        province="测试",
+        source_url="https://example.test/lawwatch",
+    )
+    wecom = os.getenv("WECOM_WEBHOOK", "").strip()
+    user = os.getenv("SMTP_USER", "").strip()
+    auth = os.getenv("SMTP_AUTH_CODE", "").strip()
+    to = [x.strip() for x in os.getenv("EMAIL_TO", "").split(",") if x.strip()]
+    any_succeeded = False
+    if wecom:
+        try:
+            send_wecom(wecom, [sample])
+            any_succeeded = True
+        except Exception as exc:
+            print(f"[notify] WeCom test notification failed: {exc}", file=sys.stderr)
+    if user and auth and to:
+        try:
+            send_email(
+                {"host": "smtp.qq.com", "port": 465, "user": user, "password": auth, "to": to},
+                [sample],
+            )
+            any_succeeded = True
+        except Exception as exc:
+            print(f"[notify] email test notification failed: {exc}", file=sys.stderr)
+    return any_succeeded

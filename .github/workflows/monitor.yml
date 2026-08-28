@@ -4,6 +4,12 @@ on:
   schedule:
     - cron: "*/30 * * * *"
   workflow_dispatch:
+    inputs:
+      test_notification:
+        description: Send a test notification without changing monitor state
+        required: false
+        default: false
+        type: boolean
 
 concurrency:
   group: monitor
@@ -31,7 +37,12 @@ jobs:
           python -m playwright install --with-deps chromium
 
       - name: Run monitor
-        run: python -m monitor.run --send --max-pages 15
+        run: |
+          if [ "${{ inputs.test_notification }}" = "true" ]; then
+            python -m monitor.run --test-notification
+          else
+            python -m monitor.run --send --max-pages 15
+          fi
         env:
           SMTP_USER: ${{ secrets.SMTP_USER }}
           SMTP_AUTH_CODE: ${{ secrets.SMTP_AUTH_CODE }}

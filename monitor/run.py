@@ -6,7 +6,7 @@ from pathlib import Path
 from .config import load_sites
 from .discovery import discover_for_site, is_list_candidate
 from .fetcher import BrowserFetcher, HttpFetcher
-from .notify import notify_all
+from .notify import notify_all, send_test_notification
 from .state import StateStore
 
 
@@ -81,7 +81,12 @@ def main() -> int:
     parser.add_argument("--send", action="store_true")
     parser.add_argument("--dry-run", action="store_true")
     parser.add_argument("--max-pages", type=int, default=30)
+    parser.add_argument("--test-notification", action="store_true")
     args = parser.parse_args()
+    if args.test_notification:
+        ok = send_test_notification()
+        print(json.dumps({"test_notification": ok}))
+        return 0 if ok else 1
     result = run(
         send=args.send and not args.dry_run,
         max_pages=args.max_pages,
