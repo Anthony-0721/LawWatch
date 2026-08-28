@@ -1,0 +1,19 @@
+[Unit]
+Description=LawWatch provincial legal notice monitor
+After=network-online.target
+Wants=network-online.target
+
+[Service]
+Type=oneshot
+User=lawwatch
+Group=lawwatch
+WorkingDirectory=/opt/lawwatch/app
+Environment=LAWWATCH_CONFIG=/etc/lawwatch/config.json
+Environment=LAWWATCH_DATA_DIR=/var/lib/lawwatch
+ExecStart=/opt/lawwatch/venv/bin/python -m monitor.run --send --max-pages 8
+TimeoutSec=45min
+StandardOutput=journal
+StandardError=journal
+
+[Install]
+WantedBy=multi-user.target
