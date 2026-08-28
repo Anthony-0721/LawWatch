@@ -234,10 +234,12 @@ if not exist "%PY%" echo Error: python\python.exe not found & exit /b 1
 if not exist "%RUN%" echo Error: run.bat not found & exit /b 1
 if not exist "%CONFIG%" copy "%APP_DIR%config.example.json" "%CONFIG%" >nul
 if not exist "%DATA%" mkdir "%DATA%"
-schtasks /create /f /tn "LawWatch Monitor" /tr "\"%RUN%\" --send" /sc MINUTE /mo 30 /ru "%USERNAME%"
+schtasks /create /f /tn "LawWatch Monitor" /tr "\"%RUN%\" --send" /sc MINUTE /mo 30 /it
 echo Task "LawWatch Monitor" installed.
 echo Fill config.json before first run.
 ```
+**Note:** 任务用 `/IT` 以交互模式创建：仅在创建者登录期间运行、不保存密码、不提示输入密码。`install-task.bat` 还校验包内 Python 依赖可导入、`config.json` 为合法 JSON，且 `smtp_user`/`smtp_auth_code`/`email_to` 要么全部填写、要么全部留空（空配置允许首次基线运行）。
+
 
 `windows/uninstall-task.bat`:
 

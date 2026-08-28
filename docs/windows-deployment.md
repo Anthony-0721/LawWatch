@@ -13,7 +13,7 @@
 
 构建机器（打包用，只需一台 Windows 开发机）：
 
-- 64 位 Windows，且安装了真实的 64 位 Python 3.x（python.org 完整安装包，不是 Microsoft Store 占位程序），`python` 命令可用；
+- 64 位 Windows，且安装了真实的 64 位 Python 3.x（必须是 python.org 完整安装包；不能是 Microsoft Store 占位程序、venv 虚拟环境或 conda/Anaconda 环境），`python` 命令可用；
 - 能联网下载 pip 依赖；
 - 仓库中已包含 `monitor/`、`windows/`、`requirements.txt` 与打包脚本。
 
@@ -46,7 +46,7 @@ LawWatchMonitor\
 powershell -ExecutionPolicy Bypass -File scripts\prepare-windows-portable.ps1
 ```
 
-脚本会先校验 `python` 指向真实安装目录（拒绝 Microsoft Store 的 0 字节占位程序），删除旧的 `dist\LawWatchMonitor\`，然后把 Python 安装目录整体复制到包内、安装 `requirements.txt` 依赖、复制监控代码与脚本，并生成全新的 `data\`（`sites.csv`、空白的 `state.json`、`logs\`）。构建前请确认 `python --version` 与 `python -m pip --version` 正常。
+脚本会先校验 `python` 指向独立安装的官方 Python（拒绝 Microsoft Store 的 0 字节占位程序、venv 虚拟环境、conda/Anaconda 环境，并要求安装目录包含 `vcruntime140.dll`），删除旧的 `dist\LawWatchMonitor\`，然后把 Python 安装目录整体复制到包内、安装 `requirements.txt` 依赖、复制监控代码与脚本，并生成全新的 `data\`（`sites.csv`、空白的 `state.json`、`logs\`）。构建前请确认 `python --version` 与 `python -m pip --version` 正常。
 
 构建完成后冒烟验证：
 
@@ -55,6 +55,8 @@ powershell -ExecutionPolicy Bypass -File scripts\prepare-windows-portable.ps1
 ```
 
 预期输出抓取统计，且不写入 `data\state.json`。
+
+在一台干净的 Windows 10/11 或 Server 2019/2022 虚拟机/主机上完整验证：解压发布包后依次运行 `.\dist\LawWatchMonitor\run.bat --dry-run` 与 `install-task.bat`，再用 `schtasks /query /tn "LawWatch Monitor"` 确认任务已创建。
 
 ## 部署到目标机器
 
@@ -94,7 +96,7 @@ powershell -ExecutionPolicy Bypass -File scripts\prepare-windows-portable.ps1
 
 ## 注册计划任务
 
-双击 `install-task.bat`。脚本会创建名为 `LawWatch Monitor` 的任务，以当前用户身份每 30 分钟执行一次 `run.bat --send`。安装过程中 SchTasks 可能提示输入该用户的登录密码，并把任务凭据交给 Windows 管理。
+双击 `install-task.bat`。脚本先检查包内 Python 依赖与 `config.json` 通知配置的完整性，再创建名为 `LawWatch Monitor` 的任务，以当前登录用户身份每 30 分钟执行一次 `run.bat --send`。安装过程不会要求输入密码，也不会保存任何密码；任务仅在创建该任务的用户登录期间运行。
 
 验证任务：
 
@@ -104,7 +106,7 @@ schtasks /query /tn "LawWatch Monitor"
 
 任务行为说明：
 
-- 任务仅在创建该任务时的 Windows 用户登录期间运行，用户注销后不运行；安装过程中 SchTasks 可能提示输入该用户的登录密码，并把任务凭据交给 Windows 管理；
+- 任务仅在创建该任务时的 Windows 用户登录期间运行，用户注销后不运行；安装过程不会提示输入密码，也不会保存任何密码；
 - 每 30 分钟触发一次；如需修改间隔，编辑 `install-task.bat` 中的 `/mo` 值后重新运行；
 - 错过计划开始时间（例如关机、未登录）后是否补跑，由任务计划程序中该任务的“错过计划开始后尽快启动”设置决定，可在 `任务计划程序 → LawWatch Monitor → 属性 → 设置` 中确认或调整。
 
@@ -123,9 +125,9 @@ schtasks /query /tn "LawWatch Monitor"
 手动更新发布包时**保留 `config.json` 与 `data\`，只替换代码**：
 
 1. 双击 `uninstall-task.bat` 停用旧任务；
-2. 用新发布包覆盖 `monitor\` 与 `run.bat`（`config.example.json`、`install-task.bat`、`uninstall-task.bat`、`README.txt` 可同步更新；如站点清单有变化，同步替换 `data\sites.csv`）；
-3. 保留原 `config.json` 与 `data\`（其中含基线 `state.json`、站点清单与日志）；
-4. 重新双击 `install-task.bat` 注册任务，再运行 `run.bat --dry-run` 验证。
+2. 把新发布包解压到一个新文件夹（不要直接覆盖旧文件夹，避免新包自带的空白 `data\state.json` 清空基线）；如站点清单有变化，可在复制前对比并替换 `data\sites.csv`；
+3. 把旧包的 `config.json` 与 `data\`（其中含基线 `state.json`、站点清单与日志）复制到新文件夹；
+4. 在新文件夹重新双击 `install-task.bat` 注册任务，再运行 `run.bat --dry-run` 验证。
 
 从 GitHub Actions 等其他部署方式迁移：把已有的 `monitor/state.json` 与站点清单分别放入新包的 `data\state.json` 与 `data\sites.csv`，填写 `config.json`，再按上述步骤注册任务。
 
@@ -133,5 +135,5 @@ schtasks /query /tn "LawWatch Monitor"
 
 - 便携包不内置 Chromium 浏览器，动态站点在浏览器不可用时自动降级为普通 HTTP 抓取（会在输出/日志中提示）；
 - 日志按天轮转并保留最近 30 天，去重状态保留最近 30 天；
-- Windows 版默认不发送失败报警；每轮运行的结果摘要与各站点失败会写入 `data\logs\monitor.log`，站点错误同时记录在 `data\state.json` 的 `errors` 中；通知失败时下一轮自动重试；
+- Windows 版默认不发送失败报警；每轮运行的结果摘要与各站点失败会写入 `data\logs\monitor.log`，站点错误同时记录在 `data\state.json` 的 `errors` 中；仅当本轮新增公文且所有已配置的通知渠道都失败时才在下一轮重试（至少一个渠道成功即算成功并保存去重状态）；基线建立后若未配置任何通知渠道，本轮会以退出码 1 结束，直到填写 `config.json` 中的通知配置；
 - 发布/复制前检查包内不含 `config.json` 或任何真实凭据。

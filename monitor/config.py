@@ -81,4 +81,6 @@ def load_local_config(path: Path | None = None) -> dict:
             logger.error("Local config at %s is not a JSON object", config_path)
             return defaults
         defaults.update(parsed)
+    elif path is not None:
+        logger.warning("Local config file not found: %s; using default values", config_path)
     return defaults

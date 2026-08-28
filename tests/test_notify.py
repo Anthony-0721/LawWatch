@@ -230,3 +230,23 @@ def test_send_test_notification_wecom_failure_does_not_prevent_email(monkeypatch
     assert notify.send_test_notification() is True
     assert len(email_calls) == 1
     assert "wecom down" in capsys.readouterr().err
+
+
+
+def test_email_to_splits_on_semicolons_and_commas(monkeypatch):
+    monkeypatch.delenv("WECOM_WEBHOOK", raising=False)
+    monkeypatch.setenv("SMTP_USER", "sender@example.com")
+    monkeypatch.setenv("SMTP_AUTH_CODE", "auth-code")
+    monkeypatch.setenv("EMAIL_TO", "a@example.com; b@example.com, c@example.com")
+
+    email_settings = []
+    monkeypatch.setattr(
+        notify, "send_email", lambda settings, items: email_settings.append(settings)
+    )
+
+    assert notify.notify_all(items()) is True
+    assert email_settings[0]["to"] == [
+        "a@example.com",
+        "b@example.com",
+        "c@example.com",
+    ]

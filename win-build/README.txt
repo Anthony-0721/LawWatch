@@ -6,12 +6,14 @@ LawWatch Monitor - Windows 便携版打包说明
 
 一、构建前置条件
 
-1. 在 Windows 开发机上安装 64 位 Python 3.x，并确认 python 命令可用且指向真实
-   安装目录：
+1. 在 Windows 开发机上安装 64 位 Python 3.x，并确认 python 命令可用且指向独立
+   安装的官方 Python：
      python --version
      python -m pip --version
-   注意：Microsoft Store 的 python.exe 占位程序不能用于打包；请使用 python.org
-   的完整安装包，并确认 (Get-Command python).Source 指向真实安装目录。
+   注意：打包必须使用 python.org 的完整官方安装包；Microsoft Store 的占位程序、
+   venv 虚拟环境、conda/Anaconda 环境都不能用于打包。脚本会校验这些情况，并要求
+   Python 安装目录包含 vcruntime140.dll（缺失时请安装完整官方 Python 或
+   Microsoft Visual C++ 2015-2022 x64 Redistributable）。
 
 2. 构建机需要联网，脚本会向包内 Python 安装 requirements.txt 中的依赖。
 3. 仓库需包含 monitor/、windows/ 与 requirements.txt（由任务 1-3 提供）。
@@ -22,7 +24,7 @@ LawWatch Monitor - Windows 便携版打包说明
 
   powershell -ExecutionPolicy Bypass -File scripts\prepare-windows-portable.ps1
 
-脚本会先校验 python 命令指向真实安装（拒绝 Microsoft Store 的 0 字节占位程序），并删除旧的 dist/LawWatchMonitor/，然后依次执行：
+脚本会先校验 python 命令指向独立安装的官方 Python（拒绝 Microsoft Store 的 0 字节占位程序、venv 与 conda/Anaconda，并要求存在 vcruntime140.dll），并删除旧的 dist/LawWatchMonitor/，然后依次执行：
 
 1. 把当前 PATH 中 python 所在的整个安装目录复制到
    dist/LawWatchMonitor/python\；
@@ -42,6 +44,14 @@ LawWatch Monitor - Windows 便携版打包说明
 
 预期输出抓取统计，且不会写入 data\state.json。安装、配置、计划任务、SmartScreen
 与更新迁移说明见包内 README.txt（内容来自 windows/README.txt）。
+
+在一台干净的 Windows 10/11 或 Server 2019/2022 虚拟机/主机上完整验证：
+
+  .\dist\LawWatchMonitor\run.bat --dry-run
+  .\dist\LawWatchMonitor\install-task.bat
+  schtasks /query /tn "LawWatch Monitor"
+
+注：本次修复未执行 GB 级完整构建与干净 VM 冒烟测试，上述命令需要在交付前运行。
 
 四、发布
 

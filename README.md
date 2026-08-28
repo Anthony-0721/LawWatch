@@ -10,7 +10,7 @@
    - `EMAIL_TO`：收件人邮箱地址
    - `WECOM_WEBHOOK`：企业微信群机器人 Webhook 地址
 2. 在 GitHub Actions 手动运行一次 `Monitor provincial legal notices`；首次“成功”运行只建立基线，不发通知（如果所有站点都失败，基线不会被标记，后续运行会重试）。
-3. 让工作流保持启用，每 30 分钟自动运行；发现新增公文后推送企业微信并发送邮件。如果本轮新增内容但两条通知渠道全部失败，程序会以非零状态退出、不提交去重状态，下一轮自动重试同一批内容，避免漏报。
+3. 让工作流保持启用，每 30 分钟自动运行；发现新增公文后推送企业微信并发送邮件。仅当本轮新增内容且“所有已配置的通知渠道都失败”时程序才重试：以非零状态退出、不提交去重状态，下一轮自动重试同一批内容；只要有一个已配置渠道成功即视为成功并保存状态。基线建立后若未配置任何通知渠道，运行同样以退出码 1 结束，直到补齐通知配置。
 4. 本地测试：`python -m monitor.run --dry-run --max-pages 1`（只抓取与检测，不发送通知、不写入 `monitor/state.json`）。
 5. 本地测试完整通知：`python -m monitor.run --send`（需要先设好环境变量）。
 
@@ -40,7 +40,7 @@ GitHub 托管的公共 Runner 出口 IP 可能被部分中国政府网站限流�
 
 ## Windows 本机部署（无需安装 Python）
 
-如需在甲方 Windows 电脑上免安装运行，可按 [docs/windows-deployment.md](docs/windows-deployment.md) 打包便携版并注册计划任务：登录后每 30 分钟运行，配置保存在本地 `config.json`，首次运行只建立基线、不发通知。
+如需在甲方 Windows 电脑上免安装运行，可按 [docs/windows-deployment.md](docs/windows-deployment.md) 打包便携版并注册计划任务：登录后每 30 分钟运行，配置保存在本地 `config.json`，首次运行只建立基线、不发通知。更新便携版时请把新发布包解压到新文件夹并复制旧包的 `config.json` 与 `data\`，避免新包自带的空白状态文件覆盖基线（详见该文档的“更新与迁移”）。
 
 ## 国内自托管 Runner
 

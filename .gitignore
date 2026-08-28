@@ -11,4 +11,5 @@ config.json
 LawWatchMonitor/
 
 dist/
-win-build/
+win-build/*
+!win-build/README.txt

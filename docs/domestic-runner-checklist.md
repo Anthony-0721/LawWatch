@@ -58,7 +58,7 @@ sudo env RUNNER_TOKEN="粘贴注册token" bash scripts/setup-domestic-runner.sh
 - 想先验证通知渠道：勾选 `test_notification`，该模式只发送一条测试通知，不抓取、不修改状态；
 - 想建立真实基线：不勾选，直接运行，工作流执行 `python -m monitor.run --send --max-pages 8`。
 
-工作流 `runs-on` 已改为 `[self-hosted, linux, x64, lawwatch-domestic]`，本次运行会分发到刚注册的国内 Runner；若 Runner 未上线，运行会一直等待。
+工作流 `runs-on` 已改为 `[self-hosted, linux, x64, lawwatch-domestic]`，本次运行会分发到刚注册的国内 Runner；若 Runner 未上线，运行最多等待工作流 timeout-minutes（30 分钟），超时后自动失败。
 
 ## 6. 验证首次运行
 

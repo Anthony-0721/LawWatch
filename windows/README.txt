@@ -32,6 +32,8 @@ LawWatch Monitor - Windows 便携版使用说明
 
 3. 企业微信与邮件至少配置一种，否则发现新公文时无法通知。
    注意：任务间隔由 install-task.bat 固定为 30 分钟，schedule_minutes 只是记录值。
+   若两者都未配置：首次成功运行只建立基线、不发通知；基线建立后仍未配置时，
+   运行会以退出码 1 结束（视为通知未成功），填写配置后自动恢复。
 
 三、首次运行（建立基线）
 
@@ -43,10 +45,10 @@ LawWatch Monitor - Windows 便携版使用说明
 
 四、注册计划任务
 
-双击 install-task.bat。脚本会创建名为 "LawWatch Monitor" 的任务，每 30 分钟以当前
-用户身份执行 run.bat --send。安装过程中 SchTasks 可能提示输入该用户的登录密码，并把
-任务凭据交给 Windows 管理。任务仅在创建该任务时的 Windows 用户登录期间运行，用户
-注销后不运行。
+双击 install-task.bat。脚本会先检查包内 Python 依赖与 config.json 通知配置的完整性，
+再创建名为 "LawWatch Monitor" 的任务，每 30 分钟以当前登录用户身份执行 run.bat --send。
+安装过程不会提示输入密码，也不会保存任何密码；任务仅在创建该任务时的 Windows 用户
+登录期间运行，用户注销后不运行。
 
 验证任务是否存在：在命令提示符运行
   schtasks /query /tn "LawWatch Monitor"
@@ -69,10 +71,13 @@ use "More info -> Run anyway" only after verifying the file came from the truste
 
 七、更新与迁移
 
+注意：新发布包自带空白的 data\state.json，直接整体覆盖会清空基线状态。更新时请把
+新发布包解压到一个新文件夹，再把旧包的 config.json 与 data\ 复制进去，避免状态被覆盖。
+
 1. 双击 uninstall-task.bat 停用旧任务。
-2. 用新发布包覆盖 monitor\ 与 run.bat（config.example.json 等脚本文件可同步更新）；
-   保留 config.json 与 data\（其中包含基线 state.json、sites.csv 与日志）。
-3. 重新双击 install-task.bat 注册任务，再运行 run.bat --dry-run 验证。
+2. 把新发布包解压到一个新文件夹（不要直接覆盖旧文件夹）。
+3. 把旧包的 config.json 与 data\（其中包含基线 state.json、sites.csv 与日志）复制到新文件夹。
+4. 在新文件夹重新双击 install-task.bat 注册任务，再运行 run.bat --dry-run 验证。
 
 从 GitHub Actions 等其他部署方式迁移时：把已有 data\state.json 与 data\sites.csv 放入
 新包的 data\ 目录，填写 config.json，再按上述步骤注册任务即可。

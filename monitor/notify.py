@@ -1,4 +1,5 @@
 import os
+import re
 import smtplib
 import sys
 from email.mime.text import MIMEText
@@ -71,7 +72,7 @@ def _notification_settings(local_config: dict | None = None) -> dict:
     user = (config.get("smtp_user") or "").strip() or os.getenv("SMTP_USER", "").strip()
     auth = (config.get("smtp_auth_code") or "").strip() or os.getenv("SMTP_AUTH_CODE", "").strip()
     raw_to = (config.get("email_to") or "").strip() or os.getenv("EMAIL_TO", "")
-    to = [part.strip() for part in raw_to.split(",") if part.strip()]
+    to = [part.strip() for part in re.split(r"[,;]", raw_to) if part.strip()]
     return {"wecom": wecom, "user": user, "auth": auth, "to": to}
 
 

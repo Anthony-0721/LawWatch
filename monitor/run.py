@@ -151,6 +151,8 @@ def main() -> int:
     if args.data_dir:
         os.environ["LAWWATCH_DATA_DIR"] = args.data_dir
 
+    setup_logging(data_dir() / "logs")
+
     local_config = None
     if args.config:
         local_config = load_local_config(Path(args.config))
@@ -164,6 +166,7 @@ def main() -> int:
 
     if args.test_notification:
         ok = send_test_notification(local_config)
+        logger.info("test notification result: ok=%s", ok)
         print(json.dumps({"test_notification": ok}))
         return 0 if ok else 1
 

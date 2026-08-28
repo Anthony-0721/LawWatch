@@ -427,3 +427,18 @@ def test_empty_first_run_baselines_and_second_run_notifies(tmp_path, monkeypatch
     second = run(send=True)
     assert second["baseline"] is False
     assert [item.url for item in notified[0]] == [document.url]
+
+
+
+def test_main_test_notification_writes_result_to_local_log(tmp_path, monkeypatch):
+    monkeypatch.setenv("LAWWATCH_DATA_DIR", str(tmp_path))
+
+    def fake_send(local_config):
+        return True
+
+    monkeypatch.setattr(sys, "argv", ["monitor.run", "--test-notification"])
+    monkeypatch.setattr("monitor.run.send_test_notification", fake_send)
+    assert main() == 0
+    log_file = tmp_path / "logs" / "monitor.log"
+    assert log_file.exists()
+    assert "test notification result" in log_file.read_text(encoding="utf-8")

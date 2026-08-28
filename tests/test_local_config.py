@@ -243,3 +243,12 @@ def test_main_data_dir_flag_sets_data_directory(tmp_path, monkeypatch):
     assert os.environ["LAWWATCH_DATA_DIR"] == str(data)
     assert data_dir() == data
     assert received["persist"] is True
+
+
+
+def test_load_local_config_warns_when_explicit_path_missing(tmp_path, caplog):
+    missing = tmp_path / "does-not-exist.json"
+    config = load_local_config(missing)
+    assert config["smtp_user"] == ""
+    assert config["schedule_minutes"] == 30
+    assert "not found" in caplog.text
