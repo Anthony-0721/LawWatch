@@ -260,7 +260,8 @@ cmd /c "call windows\run.bat --dry-run"
 ```bash
 git add windows
 git commit -m "feat(windows): add portable launcher and task scheduler scripts"
-```## Task 4: 便携 Python Windows 打包
+``n
+## Task 4: 便携 Python Windows 打包
 
 **Files:**
 - Create: `scripts/prepare-windows-portable.ps1`
@@ -310,7 +311,8 @@ powershell -ExecutionPolicy Bypass -File scripts\prepare-windows-portable.ps1
 ```bash
 git add scripts/prepare-windows-portable.ps1 win-build/README.txt
 git commit -m "feat(windows): add portable Python packaging pipeline"
-```## Task 5: README 与自托管 Runner 验证说明
+``n
+## Task 5: README 与自托管 Runner 验证说明
 
 **Files:**
 - Modify: `README.md`
@@ -348,6 +350,7 @@ python -c "import pathlib,yaml; yaml.safe_load(pathlib.Path('.github/workflows/m
 - `--test-notification` 可用本地 `config.json` 发送测试。
 - Windows 绿色版可运行 `install-task.bat` 并在干净 Windows 上创建任务；打包版本不依赖 Playwright，动态站点使用 HTTP 降级。
 - 自托管 Runner 文档完成；服务器一旦注册即可运行。
+
 
 
 
