@@ -8,7 +8,7 @@ from monitor.models import FetchResult
 def test_http_fetcher_reduced_defaults():
     fetcher = HttpFetcher()
     assert fetcher.timeout == 10
-    assert fetcher.retries == 1
+    assert fetcher.retries == 2
 
 
 def test_browser_fetcher_reduced_default_timeout():

@@ -23,6 +23,7 @@ def discover_for_site(
 ) -> tuple[list[Document], list[str], dict[str, str]]:
     queue = deque([(site.url, 0), *((url, 0) for url in known_list_urls)])
     visited = set()
+    reached = set()
     documents: list[Document] = []
     errors: dict[str, str] = {}
 
@@ -35,6 +36,7 @@ def discover_for_site(
         if result.error or result.status != 200:
             errors[url] = result.error or f"HTTP {result.status}"
             continue
+        reached.add(url)
         documents.extend(
             extract_documents(
                 result.html or "",
@@ -53,4 +55,4 @@ def discover_for_site(
         if document.url not in seen_urls:
             seen_urls.add(document.url)
             unique_docs.append(document)
-    return unique_docs, list(visited), errors
+    return unique_docs, list(reached), errors
